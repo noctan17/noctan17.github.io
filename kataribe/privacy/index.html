@@ -3,124 +3,528 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>プライバシーポリシー - KATARIBE</title>
+  <title>プライバシーポリシー — KATARIBE</title>
   <style>
+    :root {
+      --ink:     #0e0d0b;
+      --paper:   #f4edd8;
+      --moss:    #2a4a35;
+      --gold:    #b8913a;
+      --gold-lt: #d4a94e;
+      --ash:     #6b6356;
+      --smoke:   #e8e0cc;
+      --surface: #1a1812;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
-      background: #f9f9f7;
-      color: #1a1a1a;
-      line-height: 1.8;
-      padding: 40px 20px 80px;
+      background-color: var(--ink);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(42,74,53,0.35) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      color: var(--paper);
+      font-family: "游明朝", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+      line-height: 1.9;
+      min-height: 100vh;
     }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 48px 48px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      padding: 80px 24px 64px;
+      text-align: center;
+      overflow: hidden;
     }
-    .app-name {
-      font-size: 13px;
-      color: #888;
-      letter-spacing: 0.08em;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 39px,
+          rgba(184,145,58,0.07) 39px,
+          rgba(184,145,58,0.07) 40px
+        );
+      pointer-events: none;
+    }
+    .hero-kamon {
+      width: 56px; height: 56px;
+      margin: 0 auto 24px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      color: var(--gold);
+      position: relative;
+    }
+    .hero-kamon::before, .hero-kamon::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(184,145,58,0.3);
+      border-radius: 50%;
+    }
+    .hero-kamon::before { inset: -6px; }
+    .hero-kamon::after  { inset: -12px; }
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #111;
-    }
-    .updated {
-      font-size: 13px;
-      color: #aaa;
-      margin-bottom: 48px;
-    }
-    h2 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-top: 40px;
       margin-bottom: 12px;
-      padding-left: 12px;
-      border-left: 3px solid #3a7d44;
-      color: #111;
+      opacity: 0.9;
     }
-    p, li { font-size: 15px; color: #444; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 6px; }
-    a { color: #3a7d44; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .contact-box {
-      margin-top: 16px;
-      padding: 20px 24px;
-      background: #f4f9f5;
-      border-radius: 8px;
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--paper);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold-lt);
+    }
+    .hero-date {
+      font-size: 12px;
+      color: var(--ash);
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+    }
+    .gold-rule {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    /* ─── LAYOUT ─── */
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* ─── TOC ─── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid rgba(184,145,58,0.25);
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin-bottom: 64px;
+    }
+    .toc-title {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+    }
+    .toc li {
+      counter-increment: toc;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 5px 0;
+      border-bottom: 1px dashed rgba(184,145,58,0.12);
+    }
+    .toc li:last-child { border-bottom: none; }
+    .toc li::before {
+      content: counter(toc, cjk-decimal);
+      font-size: 11px;
+      color: var(--gold);
+      min-width: 16px;
+      opacity: 0.7;
+    }
+    .toc a {
+      font-size: 14px;
+      color: var(--smoke);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .toc a:hover { color: var(--gold-lt); }
+
+    /* ─── INTRO ─── */
+    .intro {
       font-size: 15px;
-      color: #444;
+      color: rgba(244,237,216,0.7);
+      padding: 0 0 48px;
+      border-bottom: 1px solid rgba(184,145,58,0.15);
+      margin-bottom: 48px;
+      line-height: 2;
     }
+
+    /* ─── SECTION ─── */
+    .section {
+      margin-bottom: 56px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .section-num {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      opacity: 0.7;
+      min-width: 20px;
+    }
+    .section-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+    .section h2 {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+    }
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(184,145,58,0.4), transparent);
+      margin-bottom: 20px;
+    }
+    .section p {
+      font-size: 14.5px;
+      color: rgba(244,237,216,0.72);
+      margin-bottom: 14px;
+      line-height: 2;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section ul li {
+      font-size: 14.5px;
+      color: rgba(244,237,216,0.72);
+      padding: 8px 0 8px 20px;
+      border-bottom: 1px dashed rgba(184,145,58,0.1);
+      position: relative;
+      line-height: 1.9;
+    }
+    .section ul li:last-child { border-bottom: none; }
+    .section ul li::before {
+      content: "┤";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      opacity: 0.5;
+      font-size: 12px;
+      top: 9px;
+    }
+    strong {
+      color: var(--paper);
+      font-weight: 600;
+    }
+    a {
+      color: var(--gold-lt);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212,169,78,0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover {
+      color: #e8c870;
+      border-color: rgba(232,200,112,0.6);
+    }
+
+    /* ─── THIRD PARTY CARDS ─── */
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid rgba(184,145,58,0.18);
+      border-radius: 4px;
+      padding: 16px 18px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .service-card:hover {
+      border-color: rgba(184,145,58,0.45);
+      background: rgba(42,74,53,0.15);
+    }
+    .service-name {
+      font-size: 13px;
+      color: var(--paper);
+      font-weight: 600;
+      margin-bottom: 3px;
+      letter-spacing: 0.04em;
+    }
+    .service-desc {
+      font-size: 11.5px;
+      color: var(--ash);
+      margin-bottom: 8px;
+    }
+    .service-card a {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      border-bottom-color: rgba(184,145,58,0.2);
+    }
+    @media (max-width: 520px) {
+      .service-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid rgba(184,145,58,0.3);
+      border-radius: 4px;
+      padding: 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-box::before {
+      content: "✉";
+      position: absolute;
+      right: 24px; top: 20px;
+      font-size: 40px;
+      opacity: 0.05;
+      color: var(--gold);
+    }
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .contact-row:last-child { margin-bottom: 0; }
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      min-width: 70px;
+      opacity: 0.8;
+    }
+    .contact-val { color: rgba(244,237,216,0.8); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(184,145,58,0.12);
+      font-size: 12px;
+      color: rgba(107,99,86,0.8);
+      letter-spacing: 0.08em;
+    }
+    footer .footer-mark {
+      font-size: 18px;
+      color: rgba(184,145,58,0.4);
+      margin-bottom: 10px;
+    }
+
     @media (max-width: 600px) {
-      .container { padding: 32px 24px; }
-      h1 { font-size: 22px; }
+      .toc { padding: 20px 20px; }
+      .contact-box { padding: 20px 20px; }
+      .hero { padding: 60px 20px 48px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <p class="app-name">KATARIBE</p>
-    <h1>プライバシーポリシー</h1>
-    <p class="updated">最終更新日：2026年2月20日</p>
 
-    <p>本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-kamon">⛩</div>
+    <p class="hero-label">KATARIBE — かたりべ</p>
+    <h1>プライバシー<em>ポリシー</em></h1>
+    <p class="hero-date">最終更新日：2026年2月20日</p>
+    <div class="gold-rule"></div>
+  </header>
 
-    <h2>1. 収集する情報</h2>
-    <p>本アプリは以下の情報を収集します。</p>
-    <ul>
-      <li><strong>位置情報</strong>：現在地を起点に近くの歴史スポットを表示するために使用します。ナビゲーション中はバックグラウンドでも取得します。位置情報はデバイス上でのみ処理され、外部サーバーに送信されません。</li>
-      <li><strong>広告識別子（IDFA）</strong>：Google AdMob による広告配信のために使用されます。</li>
-    </ul>
+  <div class="wrapper">
 
-    <h2>2. 情報の利用目的</h2>
-    <ul>
-      <li>近くの歴史スポットの検索・表示</li>
-      <li>ルートナビゲーション機能の提供</li>
-      <li>AIによる史跡解説の生成</li>
-      <li>広告の配信</li>
-    </ul>
+    <!-- INTRO -->
+    <p class="intro">
+      本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
+    </p>
 
-    <h2>3. 第三者への情報提供</h2>
-    <p>本アプリは以下のサービスを利用しており、それぞれのプライバシーポリシーが適用されます。</p>
-    <ul>
-      <li><strong>Google AdMob</strong>（広告配信）：<a href="https://policies.google.com/privacy" target="_blank">Googleプライバシーポリシー</a></li>
-      <li><strong>AWS Bedrock</strong>（AI解説生成）：<a href="https://aws.amazon.com/jp/privacy/" target="_blank">AWSプライバシーポリシー</a></li>
-      <li><strong>OpenStreetMap / Overpass API</strong>（史跡データ）：<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSMプライバシーポリシー</a></li>
-      <li><strong>Wikidata / Wikipedia / Wikimedia Commons</strong>（補完情報）：<a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">Wikimediaプライバシーポリシー</a></li>
-    </ul>
-    <p>上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
+    <!-- TOC -->
+    <nav class="toc">
+      <p class="toc-title">目次</p>
+      <ol>
+        <li><a href="#s1">収集する情報</a></li>
+        <li><a href="#s2">情報の利用目的</a></li>
+        <li><a href="#s3">第三者への情報提供</a></li>
+        <li><a href="#s4">データの保存</a></li>
+        <li><a href="#s5">お客様の権利</a></li>
+        <li><a href="#s6">未成年者について</a></li>
+        <li><a href="#s7">ポリシーの変更</a></li>
+        <li><a href="#s8">お問い合わせ</a></li>
+      </ol>
+    </nav>
 
-    <h2>4. データの保存</h2>
-    <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
+    <!-- S1 -->
+    <section class="section" id="s1">
+      <div class="section-header">
+        <span class="section-num">一</span>
+        <span class="section-icon">📍</span>
+        <h2>収集する情報</h2>
+      </div>
+      <div class="section-divider"></div>
+      <p>本アプリは以下の情報を収集します。</p>
+      <ul>
+        <li><strong>位置情報</strong>：現在地を起点に近くの歴史スポットを表示するために使用します。ナビゲーション中はバックグラウンドでも取得します。位置情報はデバイス上でのみ処理され、外部サーバーに送信されません。</li>
+        <li><strong>広告識別子（IDFA）</strong>：Google AdMob による広告配信のために使用されます。</li>
+      </ul>
+    </section>
 
-    <h2>5. お客様の権利</h2>
-    <ul>
-      <li>位置情報の取得は、デバイスの設定からいつでも停止できます。</li>
-      <li>広告識別子のリセットや追跡の制限は、デバイスのプライバシー設定から行えます。</li>
-    </ul>
+    <!-- S2 -->
+    <section class="section" id="s2">
+      <div class="section-header">
+        <span class="section-num">二</span>
+        <span class="section-icon">🎯</span>
+        <h2>情報の利用目的</h2>
+      </div>
+      <div class="section-divider"></div>
+      <ul>
+        <li>近くの歴史スポットの検索・表示</li>
+        <li>ルートナビゲーション機能の提供</li>
+        <li>AIによる史跡解説の生成</li>
+        <li>広告の配信</li>
+      </ul>
+    </section>
 
-    <h2>6. 未成年者について</h2>
-    <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
+    <!-- S3 -->
+    <section class="section" id="s3">
+      <div class="section-header">
+        <span class="section-num">三</span>
+        <span class="section-icon">🤝</span>
+        <h2>第三者への情報提供</h2>
+      </div>
+      <div class="section-divider"></div>
+      <p>本アプリは以下のサービスを利用しており、それぞれのプライバシーポリシーが適用されます。</p>
+      <div class="service-grid">
+        <div class="service-card">
+          <p class="service-name">Google AdMob</p>
+          <p class="service-desc">広告配信</p>
+          <a href="https://policies.google.com/privacy" target="_blank">プライバシーポリシー →</a>
+        </div>
+        <div class="service-card">
+          <p class="service-name">AWS Bedrock</p>
+          <p class="service-desc">AI解説生成</p>
+          <a href="https://aws.amazon.com/jp/privacy/" target="_blank">プライバシーポリシー →</a>
+        </div>
+        <div class="service-card">
+          <p class="service-name">OpenStreetMap / Overpass API</p>
+          <p class="service-desc">史跡データ</p>
+          <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">プライバシーポリシー →</a>
+        </div>
+        <div class="service-card">
+          <p class="service-name">Wikimedia</p>
+          <p class="service-desc">Wikidata / Wikipedia / Commons</p>
+          <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">プライバシーポリシー →</a>
+        </div>
+      </div>
+      <p style="margin-top:16px;">上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
+    </section>
 
-    <h2>7. ポリシーの変更</h2>
-    <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
+    <!-- S4 -->
+    <section class="section" id="s4">
+      <div class="section-header">
+        <span class="section-num">四</span>
+        <span class="section-icon">🗄</span>
+        <h2>データの保存</h2>
+      </div>
+      <div class="section-divider"></div>
+      <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
+    </section>
 
-    <h2>8. お問い合わせ</h2>
-    <div class="contact-box">
-      本アプリに関するご質問・ご要望は以下までお問い合わせください。<br><br>
-      <strong>開発者：</strong>noctan17<br>
-      <strong>メール：</strong><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a>
-    </div>
+    <!-- S5 -->
+    <section class="section" id="s5">
+      <div class="section-header">
+        <span class="section-num">五</span>
+        <span class="section-icon">🔒</span>
+        <h2>お客様の権利</h2>
+      </div>
+      <div class="section-divider"></div>
+      <ul>
+        <li>位置情報の取得は、デバイスの設定からいつでも停止できます。</li>
+        <li>広告識別子のリセットや追跡の制限は、デバイスのプライバシー設定から行えます。</li>
+      </ul>
+    </section>
+
+    <!-- S6 -->
+    <section class="section" id="s6">
+      <div class="section-header">
+        <span class="section-num">六</span>
+        <span class="section-icon">👤</span>
+        <h2>未成年者について</h2>
+      </div>
+      <div class="section-divider"></div>
+      <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
+    </section>
+
+    <!-- S7 -->
+    <section class="section" id="s7">
+      <div class="section-header">
+        <span class="section-num">七</span>
+        <span class="section-icon">📜</span>
+        <h2>ポリシーの変更</h2>
+      </div>
+      <div class="section-divider"></div>
+      <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
+    </section>
+
+    <!-- S8 -->
+    <section class="section" id="s8">
+      <div class="section-header">
+        <span class="section-num">八</span>
+        <span class="section-icon">✉️</span>
+        <h2>お問い合わせ</h2>
+      </div>
+      <div class="section-divider"></div>
+      <div class="contact-box">
+        <p style="font-size:13px;color:var(--ash);margin-bottom:20px;letter-spacing:0.05em;">本アプリに関するご質問・ご要望は以下までお問い合わせください。</p>
+        <div class="contact-row">
+          <span class="contact-label">Developer</span>
+          <span class="contact-val">noctan17</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+        </div>
+      </div>
+    </section>
+
   </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-mark">⛩</div>
+    KATARIBE — Privacy Policy<br>
+    最終更新：2026年2月20日
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.section').forEach(s => observer.observe(s));
+  </script>
+
 </body>
 </html>
