@@ -3,466 +3,465 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>プライバシーポリシー — KATARIBE</title>
+  <title>Privacy Policy — KATARIBE</title>
   <style>
     :root {
-      --ink:     #0e0d0b;
-      --paper:   #f4edd8;
-      --moss:    #2a4a35;
-      --gold:    #b8913a;
-      --gold-lt: #d4a94e;
-      --ash:     #6b6356;
-      --smoke:   #e8e0cc;
-      --surface: #1a1812;
+      --bg:       #0a0a0a;
+      --bg2:      #111111;
+      --bg3:      #181818;
+      --border:   rgba(255,255,255,0.07);
+      --border2:  rgba(255,255,255,0.12);
+      --text:     #f0f0f0;
+      --text2:    rgba(240,240,240,0.5);
+      --text3:    rgba(240,240,240,0.25);
+      --accent:   #4f8eff;
+      --accent2:  rgba(79,142,255,0.12);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--ink);
-      background-image:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(42,74,53,0.35) 0%, transparent 70%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      color: var(--paper);
-      font-family: "游明朝", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
-      line-height: 1.9;
-      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── HERO ─── */
-    .hero {
-      position: relative;
-      padding: 80px 24px 64px;
-      text-align: center;
-      overflow: hidden;
+    /* ── HEADER ── */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 39px,
-          rgba(184,145,58,0.07) 39px,
-          rgba(184,145,58,0.07) 40px
-        );
-      pointer-events: none;
+    .site-header .logo {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text);
     }
-    .hero-label {
+    .site-header .badge {
       font-size: 11px;
-      letter-spacing: 0.3em;
-      color: var(--gold);
+      color: var(--text2);
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      padding: 3px 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 40px 72px;
+      border-bottom: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 16px;
-      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+    .hero-tag::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
     }
     .hero h1 {
-      font-size: clamp(28px, 6vw, 48px);
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      color: var(--paper);
-      line-height: 1.3;
-      margin-bottom: 16px;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 20px;
     }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold-lt);
-    }
-    .hero-date {
-      font-size: 12px;
-      color: var(--ash);
-      letter-spacing: 0.1em;
-      margin-bottom: 40px;
-    }
-    .gold-rule {
-      width: 60px; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto;
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text2);
     }
 
-    /* ─── LAYOUT ─── */
-    .wrapper {
-      max-width: 780px;
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 24px 100px;
+      padding: 0 40px 120px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0 64px;
+      align-items: start;
     }
 
-    /* ─── TOC ─── */
+    /* ── TOC ── */
     .toc {
-      background: var(--surface);
-      border: 1px solid rgba(184,145,58,0.25);
-      border-radius: 4px;
-      padding: 28px 32px;
-      margin-bottom: 64px;
+      position: sticky;
+      top: 40px;
+      padding: 40px 0 0;
     }
-    .toc-title {
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      color: var(--gold);
+    .toc-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      color: var(--text3);
       margin-bottom: 16px;
     }
-    .toc ol {
+    .toc-list {
       list-style: none;
-      counter-reset: toc;
     }
-    .toc li {
-      counter-increment: toc;
+    .toc-list li {
+      margin-bottom: 2px;
+    }
+    .toc-list a {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 10px;
-      padding: 5px 0;
-      border-bottom: 1px dashed rgba(184,145,58,0.12);
-    }
-    .toc li:last-child { border-bottom: none; }
-    .toc li::before {
-      content: counter(toc, cjk-decimal);
-      font-size: 11px;
-      color: var(--gold);
-      min-width: 16px;
-      opacity: 0.7;
-    }
-    .toc a {
-      font-size: 14px;
-      color: var(--smoke);
+      font-size: 13px;
+      color: var(--text2);
       text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
+      padding: 6px 0;
+      border-radius: 6px;
+      transition: color 0.15s;
+      border-bottom: none;
     }
-    .toc a:hover { color: var(--gold-lt); }
+    .toc-list a:hover { color: var(--text); }
+    .toc-list a.active { color: var(--accent); }
+    .toc-num {
+      font-size: 10px;
+      color: var(--text3);
+      min-width: 16px;
+      font-variant-numeric: tabular-nums;
+    }
 
-    /* ─── INTRO ─── */
-    .intro {
+    /* ── CONTENT ── */
+    .content {
+      padding-top: 40px;
+    }
+    .intro-text {
       font-size: 15px;
-      color: rgba(244,237,216,0.7);
-      padding: 0 0 48px;
-      border-bottom: 1px solid rgba(184,145,58,0.15);
-      margin-bottom: 48px;
-      line-height: 2;
+      color: var(--text2);
+      line-height: 1.8;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
     }
 
-    /* ─── SECTION ─── */
+    /* ── SECTION ── */
     .section {
-      margin-bottom: 56px;
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
+    .section:last-child { border-bottom: none; }
+
     .section-num {
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.15em;
-      opacity: 0.7;
-      min-width: 20px;
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
     }
     .section h2 {
-      font-size: 18px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      color: var(--paper);
-    }
-    .section-divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(184,145,58,0.4), transparent);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
       margin-bottom: 20px;
     }
     .section p {
       font-size: 14.5px;
-      color: rgba(244,237,216,0.72);
-      margin-bottom: 14px;
-      line-height: 2;
+      color: var(--text2);
+      margin-bottom: 12px;
+      line-height: 1.8;
     }
-    .section ul {
-      list-style: none;
-      padding: 0;
-    }
-    .section ul li {
-      font-size: 14.5px;
-      color: rgba(244,237,216,0.72);
-      padding: 8px 0 8px 20px;
-      border-bottom: 1px dashed rgba(184,145,58,0.1);
-      position: relative;
-      line-height: 1.9;
-    }
-    .section ul li:last-child { border-bottom: none; }
-    .section ul li::before {
-      content: "┤";
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      opacity: 0.5;
-      font-size: 12px;
-      top: 9px;
-    }
-    strong {
-      color: var(--paper);
-      font-weight: 600;
-    }
-    a {
-      color: var(--gold-lt);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(212,169,78,0.3);
-      transition: border-color 0.2s, color 0.2s;
-    }
-    a:hover {
-      color: #e8c870;
-      border-color: rgba(232,200,112,0.6);
-    }
+    .section p:last-child { margin-bottom: 0; }
 
-    /* ─── THIRD PARTY CARDS ─── */
+    .item-list {
+      list-style: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .item-list li {
+      font-size: 14px;
+      color: var(--text2);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.7;
+    }
+    .item-list li:last-child { border-bottom: none; }
+    .item-list li strong { color: var(--text); font-weight: 500; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(79,142,255,0.25);
+      transition: border-color 0.15s;
+    }
+    a:hover { border-color: var(--accent); }
+
+    /* ── SERVICE CARDS ── */
     .service-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 8px;
+      gap: 10px;
+      margin-top: 16px;
     }
     .service-card {
-      background: var(--surface);
-      border: 1px solid rgba(184,145,58,0.18);
-      border-radius: 4px;
-      padding: 16px 18px;
-      transition: border-color 0.2s, background 0.2s;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: border-color 0.15s, background 0.15s;
     }
     .service-card:hover {
-      border-color: rgba(184,145,58,0.45);
-      background: rgba(42,74,53,0.15);
+      border-color: var(--border2);
+      background: var(--bg3);
     }
-    .service-name {
+    .service-card-name {
       font-size: 13px;
-      color: var(--paper);
       font-weight: 600;
-      margin-bottom: 3px;
-      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 2px;
     }
-    .service-desc {
-      font-size: 11.5px;
-      color: var(--ash);
-      margin-bottom: 8px;
+    .service-card-desc {
+      font-size: 12px;
+      color: var(--text3);
+      margin-bottom: 10px;
     }
     .service-card a {
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--gold);
-      border-bottom-color: rgba(184,145,58,0.2);
-    }
-    @media (max-width: 520px) {
-      .service-grid { grid-template-columns: 1fr; }
+      font-size: 12px;
+      color: var(--accent);
+      border-bottom-color: rgba(79,142,255,0.2);
     }
 
-    /* ─── CONTACT ─── */
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid rgba(184,145,58,0.3);
-      border-radius: 4px;
-      padding: 28px 32px;
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 16px;
     }
     .contact-row {
       display: flex;
-      gap: 12px;
-      align-items: baseline;
-      margin-bottom: 10px;
+      gap: 16px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
       font-size: 14px;
     }
-    .contact-row:last-child { margin-bottom: 0; }
-    .contact-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      text-transform: uppercase;
-      min-width: 70px;
-      opacity: 0.8;
-    }
-    .contact-val { color: rgba(244,237,216,0.8); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid rgba(184,145,58,0.12);
-      font-size: 12px;
-      color: rgba(107,99,86,0.8);
+    .contact-row:first-child { padding-top: 0; }
+    .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .contact-key {
+      font-size: 11px;
+      color: var(--text3);
       letter-spacing: 0.08em;
+      text-transform: uppercase;
+      min-width: 80px;
     }
+    .contact-val { color: var(--text2); }
 
-    @media (max-width: 600px) {
-      .toc { padding: 20px 20px; }
-      .contact-box { padding: 20px 20px; }
-      .hero { padding: 60px 20px 48px; }
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+    footer .f-logo { font-size: 13px; font-weight: 600; color: var(--text2); }
+    footer .f-date { font-size: 12px; color: var(--text3); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .site-header { padding: 16px 20px; }
+      .hero { padding: 56px 20px 48px; }
+      .page {
+        grid-template-columns: 1fr;
+        padding: 0 20px 80px;
+      }
+      .toc { display: none; }
+      .service-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; gap: 8px; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <header class="hero">
-    <p class="hero-label">KATARIBE — かたりべ</p>
-    <h1>プライバシー<em>ポリシー</em></h1>
-    <p class="hero-date">最終更新日：2026年2月20日</p>
-    <div class="gold-rule"></div>
+  <header class="site-header">
+    <span class="logo">KATARIBE</span>
+    <span class="badge">Privacy Policy</span>
   </header>
 
-  <div class="wrapper">
+  <div class="hero">
+    <p class="hero-tag">Legal</p>
+    <h1>Privacy<br>Policy</h1>
+    <p class="hero-meta">Last updated: February 20, 2026 &nbsp;·&nbsp; KATARIBE App</p>
+  </div>
 
-    <p class="intro">
-      本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
-    </p>
+  <div class="page">
 
     <nav class="toc">
-      <p class="toc-title">目次</p>
-      <ol>
-        <li><a href="#s1">収集する情報</a></li>
-        <li><a href="#s2">情報の利用目的</a></li>
-        <li><a href="#s3">第三者への情報提供</a></li>
-        <li><a href="#s4">データの保存</a></li>
-        <li><a href="#s5">お客様の権利</a></li>
-        <li><a href="#s6">未成年者について</a></li>
-        <li><a href="#s7">ポリシーの変更</a></li>
-        <li><a href="#s8">お問い合わせ</a></li>
-      </ol>
+      <p class="toc-label">Contents</p>
+      <ul class="toc-list">
+        <li><a href="#s1"><span class="toc-num">01</span>収集する情報</a></li>
+        <li><a href="#s2"><span class="toc-num">02</span>情報の利用目的</a></li>
+        <li><a href="#s3"><span class="toc-num">03</span>第三者への情報提供</a></li>
+        <li><a href="#s4"><span class="toc-num">04</span>データの保存</a></li>
+        <li><a href="#s5"><span class="toc-num">05</span>お客様の権利</a></li>
+        <li><a href="#s6"><span class="toc-num">06</span>未成年者について</a></li>
+        <li><a href="#s7"><span class="toc-num">07</span>ポリシーの変更</a></li>
+        <li><a href="#s8"><span class="toc-num">08</span>お問い合わせ</a></li>
+      </ul>
     </nav>
 
-    <section class="section" id="s1">
-      <div class="section-header">
-        <span class="section-num">一</span>
+    <main class="content">
+
+      <p class="intro-text">
+        本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
+      </p>
+
+      <section class="section" id="s1">
+        <p class="section-num">01</p>
         <h2>収集する情報</h2>
-      </div>
-      <div class="section-divider"></div>
-      <p>本アプリは以下の情報を収集します。</p>
-      <ul>
-        <li><strong>位置情報</strong>：現在地を起点に近くの歴史スポットを表示するために使用します。ナビゲーション中はバックグラウンドでも取得します。位置情報はデバイス上でのみ処理され、外部サーバーに送信されません。</li>
-        <li><strong>広告識別子（IDFA）</strong>：Google AdMob による広告配信のために使用されます。</li>
-      </ul>
-    </section>
+        <ul class="item-list">
+          <li><strong>位置情報</strong> — 現在地を起点に近くの歴史スポットを表示するために使用します。ナビゲーション中はバックグラウンドでも取得します。位置情報はデバイス上でのみ処理され、外部サーバーに送信されません。</li>
+          <li><strong>広告識別子（IDFA）</strong> — Google AdMob による広告配信のために使用されます。</li>
+        </ul>
+      </section>
 
-    <section class="section" id="s2">
-      <div class="section-header">
-        <span class="section-num">二</span>
+      <section class="section" id="s2">
+        <p class="section-num">02</p>
         <h2>情報の利用目的</h2>
-      </div>
-      <div class="section-divider"></div>
-      <ul>
-        <li>近くの歴史スポットの検索・表示</li>
-        <li>ルートナビゲーション機能の提供</li>
-        <li>AIによる史跡解説の生成</li>
-        <li>広告の配信</li>
-      </ul>
-    </section>
+        <ul class="item-list">
+          <li>近くの歴史スポットの検索・表示</li>
+          <li>ルートナビゲーション機能の提供</li>
+          <li>AIによる史跡解説の生成</li>
+          <li>広告の配信</li>
+        </ul>
+      </section>
 
-    <section class="section" id="s3">
-      <div class="section-header">
-        <span class="section-num">三</span>
+      <section class="section" id="s3">
+        <p class="section-num">03</p>
         <h2>第三者への情報提供</h2>
-      </div>
-      <div class="section-divider"></div>
-      <p>本アプリは以下のサービスを利用しており、それぞれのプライバシーポリシーが適用されます。</p>
-      <div class="service-grid">
-        <div class="service-card">
-          <p class="service-name">Google AdMob</p>
-          <p class="service-desc">広告配信</p>
-          <a href="https://policies.google.com/privacy" target="_blank">プライバシーポリシー →</a>
+        <p>本アプリは以下のサービスを利用しており、それぞれのプライバシーポリシーが適用されます。</p>
+        <div class="service-grid">
+          <div class="service-card">
+            <p class="service-card-name">Google AdMob</p>
+            <p class="service-card-desc">広告配信</p>
+            <a href="https://policies.google.com/privacy" target="_blank">プライバシーポリシー →</a>
+          </div>
+          <div class="service-card">
+            <p class="service-card-name">AWS Bedrock</p>
+            <p class="service-card-desc">AI解説生成</p>
+            <a href="https://aws.amazon.com/jp/privacy/" target="_blank">プライバシーポリシー →</a>
+          </div>
+          <div class="service-card">
+            <p class="service-card-name">OpenStreetMap / Overpass API</p>
+            <p class="service-card-desc">史跡データ</p>
+            <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">プライバシーポリシー →</a>
+          </div>
+          <div class="service-card">
+            <p class="service-card-name">Wikimedia</p>
+            <p class="service-card-desc">Wikidata / Wikipedia / Commons</p>
+            <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">プライバシーポリシー →</a>
+          </div>
         </div>
-        <div class="service-card">
-          <p class="service-name">AWS Bedrock</p>
-          <p class="service-desc">AI解説生成</p>
-          <a href="https://aws.amazon.com/jp/privacy/" target="_blank">プライバシーポリシー →</a>
-        </div>
-        <div class="service-card">
-          <p class="service-name">OpenStreetMap / Overpass API</p>
-          <p class="service-desc">史跡データ</p>
-          <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">プライバシーポリシー →</a>
-        </div>
-        <div class="service-card">
-          <p class="service-name">Wikimedia</p>
-          <p class="service-desc">Wikidata / Wikipedia / Commons</p>
-          <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">プライバシーポリシー →</a>
-        </div>
-      </div>
-      <p style="margin-top:16px;">上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
-    </section>
+        <p style="margin-top:16px;">上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
+      </section>
 
-    <section class="section" id="s4">
-      <div class="section-header">
-        <span class="section-num">四</span>
+      <section class="section" id="s4">
+        <p class="section-num">04</p>
         <h2>データの保存</h2>
-      </div>
-      <div class="section-divider"></div>
-      <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
-    </section>
+        <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
+      </section>
 
-    <section class="section" id="s5">
-      <div class="section-header">
-        <span class="section-num">五</span>
+      <section class="section" id="s5">
+        <p class="section-num">05</p>
         <h2>お客様の権利</h2>
-      </div>
-      <div class="section-divider"></div>
-      <ul>
-        <li>位置情報の取得は、デバイスの設定からいつでも停止できます。</li>
-        <li>広告識別子のリセットや追跡の制限は、デバイスのプライバシー設定から行えます。</li>
-      </ul>
-    </section>
+        <ul class="item-list">
+          <li>位置情報の取得は、デバイスの設定からいつでも停止できます。</li>
+          <li>広告識別子のリセットや追跡の制限は、デバイスのプライバシー設定から行えます。</li>
+        </ul>
+      </section>
 
-    <section class="section" id="s6">
-      <div class="section-header">
-        <span class="section-num">六</span>
+      <section class="section" id="s6">
+        <p class="section-num">06</p>
         <h2>未成年者について</h2>
-      </div>
-      <div class="section-divider"></div>
-      <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
-    </section>
+        <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
+      </section>
 
-    <section class="section" id="s7">
-      <div class="section-header">
-        <span class="section-num">七</span>
+      <section class="section" id="s7">
+        <p class="section-num">07</p>
         <h2>ポリシーの変更</h2>
-      </div>
-      <div class="section-divider"></div>
-      <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
-    </section>
+        <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
+      </section>
 
-    <section class="section" id="s8">
-      <div class="section-header">
-        <span class="section-num">八</span>
+      <section class="section" id="s8">
+        <p class="section-num">08</p>
         <h2>お問い合わせ</h2>
-      </div>
-      <div class="section-divider"></div>
-      <div class="contact-box">
-        <p style="font-size:13px;color:var(--ash);margin-bottom:20px;letter-spacing:0.05em;">本アプリに関するご質問・ご要望は以下までお問い合わせください。</p>
-        <div class="contact-row">
-          <span class="contact-label">Developer</span>
-          <span class="contact-val">noctan17</span>
+        <p>本アプリに関するご質問・ご要望は以下までお問い合わせください。</p>
+        <div class="contact-card">
+          <div class="contact-row">
+            <span class="contact-key">Developer</span>
+            <span class="contact-val">noctan17</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Email</span>
+            <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+          </div>
         </div>
-        <div class="contact-row">
-          <span class="contact-label">Email</span>
-          <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
-        </div>
-      </div>
-    </section>
+      </section>
 
+    </main>
   </div>
 
   <footer>
-    KATARIBE — Privacy Policy &nbsp;|&nbsp; 最終更新：2026年2月20日
+    <span class="f-logo">KATARIBE</span>
+    <span class="f-date">© 2026 noctan17</span>
   </footer>
 
   <script>
+    // スクロールアニメーション
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
     );
     document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+    // TOC アクティブハイライト
+    const sections = document.querySelectorAll('.section[id]');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const tocObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            tocLinks.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    );
+    sections.forEach(s => tocObserver.observe(s));
   </script>
 
 </body>
