@@ -17,7 +17,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -52,30 +51,12 @@
         );
       pointer-events: none;
     }
-    .hero-kamon {
-      width: 56px; height: 56px;
-      margin: 0 auto 24px;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      color: var(--gold);
-      position: relative;
-    }
-    .hero-kamon::before, .hero-kamon::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(184,145,58,0.3);
-      border-radius: 50%;
-    }
-    .hero-kamon::before { inset: -6px; }
-    .hero-kamon::after  { inset: -12px; }
     .hero-label {
       font-size: 11px;
       letter-spacing: 0.3em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       opacity: 0.9;
     }
     .hero h1 {
@@ -187,10 +168,6 @@
       opacity: 0.7;
       min-width: 20px;
     }
-    .section-icon {
-      font-size: 20px;
-      line-height: 1;
-    }
     .section h2 {
       font-size: 18px;
       font-weight: 400;
@@ -292,16 +269,6 @@
       border: 1px solid rgba(184,145,58,0.3);
       border-radius: 4px;
       padding: 28px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-box::before {
-      content: "✉";
-      position: absolute;
-      right: 24px; top: 20px;
-      font-size: 40px;
-      opacity: 0.05;
-      color: var(--gold);
     }
     .contact-row {
       display: flex;
@@ -330,11 +297,6 @@
       color: rgba(107,99,86,0.8);
       letter-spacing: 0.08em;
     }
-    footer .footer-mark {
-      font-size: 18px;
-      color: rgba(184,145,58,0.4);
-      margin-bottom: 10px;
-    }
 
     @media (max-width: 600px) {
       .toc { padding: 20px 20px; }
@@ -345,9 +307,7 @@
 </head>
 <body>
 
-  <!-- HERO -->
   <header class="hero">
-    <div class="hero-kamon">⛩</div>
     <p class="hero-label">KATARIBE — かたりべ</p>
     <h1>プライバシー<em>ポリシー</em></h1>
     <p class="hero-date">最終更新日：2026年2月20日</p>
@@ -356,12 +316,10 @@
 
   <div class="wrapper">
 
-    <!-- INTRO -->
     <p class="intro">
       本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
     </p>
 
-    <!-- TOC -->
     <nav class="toc">
       <p class="toc-title">目次</p>
       <ol>
@@ -376,11 +334,9 @@
       </ol>
     </nav>
 
-    <!-- S1 -->
     <section class="section" id="s1">
       <div class="section-header">
         <span class="section-num">一</span>
-        <span class="section-icon">📍</span>
         <h2>収集する情報</h2>
       </div>
       <div class="section-divider"></div>
@@ -391,11 +347,9 @@
       </ul>
     </section>
 
-    <!-- S2 -->
     <section class="section" id="s2">
       <div class="section-header">
         <span class="section-num">二</span>
-        <span class="section-icon">🎯</span>
         <h2>情報の利用目的</h2>
       </div>
       <div class="section-divider"></div>
@@ -407,11 +361,9 @@
       </ul>
     </section>
 
-    <!-- S3 -->
     <section class="section" id="s3">
       <div class="section-header">
         <span class="section-num">三</span>
-        <span class="section-icon">🤝</span>
         <h2>第三者への情報提供</h2>
       </div>
       <div class="section-divider"></div>
@@ -441,22 +393,18 @@
       <p style="margin-top:16px;">上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
     </section>
 
-    <!-- S4 -->
     <section class="section" id="s4">
       <div class="section-header">
         <span class="section-num">四</span>
-        <span class="section-icon">🗄</span>
         <h2>データの保存</h2>
       </div>
       <div class="section-divider"></div>
       <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
     </section>
 
-    <!-- S5 -->
     <section class="section" id="s5">
       <div class="section-header">
         <span class="section-num">五</span>
-        <span class="section-icon">🔒</span>
         <h2>お客様の権利</h2>
       </div>
       <div class="section-divider"></div>
@@ -466,33 +414,27 @@
       </ul>
     </section>
 
-    <!-- S6 -->
     <section class="section" id="s6">
       <div class="section-header">
         <span class="section-num">六</span>
-        <span class="section-icon">👤</span>
         <h2>未成年者について</h2>
       </div>
       <div class="section-divider"></div>
       <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
     </section>
 
-    <!-- S7 -->
     <section class="section" id="s7">
       <div class="section-header">
         <span class="section-num">七</span>
-        <span class="section-icon">📜</span>
         <h2>ポリシーの変更</h2>
       </div>
       <div class="section-divider"></div>
       <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
     </section>
 
-    <!-- S8 -->
     <section class="section" id="s8">
       <div class="section-header">
         <span class="section-num">八</span>
-        <span class="section-icon">✉️</span>
         <h2>お問い合わせ</h2>
       </div>
       <div class="section-divider"></div>
@@ -511,11 +453,8 @@
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-mark">⛩</div>
-    KATARIBE — Privacy Policy<br>
-    最終更新：2026年2月20日
+    KATARIBE — Privacy Policy &nbsp;|&nbsp; 最終更新：2026年2月20日
   </footer>
 
   <script>
