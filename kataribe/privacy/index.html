@@ -600,6 +600,12 @@
   </footer>
 
   <script>
+    // スクロールアニメーション（先に定義）
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+    );
+
     // 言語切り替え
     function setLang(lang) {
       const html = document.documentElement;
@@ -614,7 +620,7 @@
         btn.textContent = 'English';
       }
       localStorage.setItem('kataribe-privacy-lang', lang);
-      // セクションを再監視
+      // セクションを再監視（表示切替後にアニメーション再発火）
       document.querySelectorAll('.section').forEach(s => {
         s.classList.remove('visible');
         observer.observe(s);
@@ -637,11 +643,7 @@
       }
     })();
 
-    // スクロールアニメーション
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
-    );
+    // 全セクションを監視開始
     document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
     // TOC アクティブハイライト
