@@ -44,6 +44,11 @@
       letter-spacing: 0.08em;
       color: var(--text);
     }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
     .site-header .badge {
       font-size: 11px;
       color: var(--text2);
@@ -52,6 +57,21 @@
       border-radius: 20px;
       padding: 3px 10px;
       letter-spacing: 0.04em;
+    }
+    .lang-switch {
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent2);
+      border: 1px solid rgba(79,142,255,0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .lang-switch:hover {
+      background: rgba(79,142,255,0.2);
+      border-color: var(--accent);
     }
 
     /* ── HERO ── */
@@ -289,6 +309,12 @@
     footer .f-logo { font-size: 13px; font-weight: 600; color: var(--text2); }
     footer .f-date { font-size: 12px; color: var(--text3); }
 
+    /* ── LANG VISIBILITY ── */
+    [data-lang-en] { display: none; }
+    [data-lang-ja] { display: revert; }
+    html.lang-en [data-lang-en] { display: revert; }
+    html.lang-en [data-lang-ja] { display: none; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .site-header { padding: 16px 20px; }
@@ -307,18 +333,23 @@
 
   <header class="site-header">
     <span class="logo">KATARIBE</span>
-    <span class="badge">Privacy Policy</span>
+    <div class="header-right">
+      <button class="lang-switch" id="langToggle" onclick="toggleLang()">English</button>
+      <span class="badge">Privacy Policy</span>
+    </div>
   </header>
 
   <div class="hero">
     <p class="hero-tag">Legal</p>
     <h1>Privacy<br>Policy</h1>
-    <p class="hero-meta">Last updated: March 6, 2026 &nbsp;·&nbsp; KATARIBE App</p>
+    <p class="hero-meta" data-lang-ja>Last updated: April 12, 2026 &nbsp;·&nbsp; KATARIBE App</p>
+    <p class="hero-meta" data-lang-en>Last updated: April 12, 2026 &nbsp;·&nbsp; KATARIBE App</p>
   </div>
 
   <div class="page">
 
-    <nav class="toc">
+    <!-- ===== TOC 日本語 ===== -->
+    <nav class="toc" data-lang-ja>
       <p class="toc-label">Contents</p>
       <ul class="toc-list">
         <li><a href="#s1"><span class="toc-num">01</span>収集する情報</a></li>
@@ -332,105 +363,233 @@
       </ul>
     </nav>
 
+    <!-- ===== TOC English ===== -->
+    <nav class="toc" data-lang-en>
+      <p class="toc-label">Contents</p>
+      <ul class="toc-list">
+        <li><a href="#s1"><span class="toc-num">01</span>Information We Collect</a></li>
+        <li><a href="#s2"><span class="toc-num">02</span>How We Use Information</a></li>
+        <li><a href="#s3"><span class="toc-num">03</span>Third-Party Services</a></li>
+        <li><a href="#s4"><span class="toc-num">04</span>Data Storage</a></li>
+        <li><a href="#s5"><span class="toc-num">05</span>Your Rights</a></li>
+        <li><a href="#s6"><span class="toc-num">06</span>International Users</a></li>
+        <li><a href="#s7"><span class="toc-num">07</span>Children's Privacy</a></li>
+        <li><a href="#s8"><span class="toc-num">08</span>Changes to This Policy</a></li>
+        <li><a href="#s9"><span class="toc-num">09</span>Contact Us</a></li>
+      </ul>
+    </nav>
+
     <main class="content">
 
-      <p class="intro-text">
-        本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
-      </p>
+      <!-- ===== 日本語本文 ===== -->
+      <div data-lang-ja>
+        <p class="intro-text">
+          本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
+        </p>
 
-      <section class="section" id="s1">
-        <p class="section-num">01</p>
-        <h2>収集する情報</h2>
-        <ul class="item-list">
-          <li><strong>位置情報</strong> — 現在地を起点に近くの歴史スポットを表示するために使用します。ナビゲーション中はバックグラウンドでも取得します。位置情報はデバイス上でのみ処理され、外部サーバーに送信されません。</li>
-          <li><strong>広告識別子（IDFA）</strong> — Google AdMob による広告配信のために使用されます。</li>
-        </ul>
-      </section>
+        <section class="section" id="s1-ja">
+          <p class="section-num">01</p>
+          <h2>収集する情報</h2>
+          <ul class="item-list">
+            <li><strong>位置情報</strong> — 現在地を起点に近くの歴史スポットを表示するために使用します。ナビゲーション中はバックグラウンドでも取得します。位置情報はデバイス上でのみ処理され、外部サーバーに送信されません。</li>
+            <li><strong>広告識別子（IDFA）</strong> — Google AdMob による広告配信のために使用されます。App Tracking Transparency（ATT）の許可を求めた上で取得します。</li>
+          </ul>
+        </section>
 
-      <section class="section" id="s2">
-        <p class="section-num">02</p>
-        <h2>情報の利用目的</h2>
-        <ul class="item-list">
-          <li>近くの歴史スポットの検索・表示</li>
-          <li>ルートナビゲーション機能の提供</li>
-          <li>AIによる史跡解説の生成</li>
-          <li>広告の配信</li>
-        </ul>
-      </section>
+        <section class="section" id="s2-ja">
+          <p class="section-num">02</p>
+          <h2>情報の利用目的</h2>
+          <ul class="item-list">
+            <li>近くの歴史スポットの検索・表示</li>
+            <li>ルートナビゲーション機能の提供</li>
+            <li>AIによる史跡解説の生成</li>
+            <li>広告の配信</li>
+          </ul>
+        </section>
 
-      <section class="section" id="s3">
-        <p class="section-num">03</p>
-        <h2>第三者への情報提供</h2>
-        <p>本アプリは以下のサービスを利用しており、それぞれのプライバシーポリシーが適用されます。</p>
-        <div class="service-grid">
-          <div class="service-card">
-            <p class="service-card-name">Google AdMob</p>
-            <p class="service-card-desc">広告配信</p>
-            <a href="https://policies.google.com/privacy" target="_blank">プライバシーポリシー →</a>
+        <section class="section" id="s3-ja">
+          <p class="section-num">03</p>
+          <h2>第三者への情報提供</h2>
+          <p>本アプリは以下のサービスを利用しており、それぞれのプライバシーポリシーが適用されます。</p>
+          <div class="service-grid">
+            <div class="service-card">
+              <p class="service-card-name">Google AdMob</p>
+              <p class="service-card-desc">広告配信</p>
+              <a href="https://policies.google.com/privacy" target="_blank">プライバシーポリシー →</a>
+            </div>
+            <div class="service-card">
+              <p class="service-card-name">AWS Bedrock</p>
+              <p class="service-card-desc">AI解説生成</p>
+              <a href="https://aws.amazon.com/jp/privacy/" target="_blank">プライバシーポリシー →</a>
+            </div>
+            <div class="service-card">
+              <p class="service-card-name">OpenStreetMap / Overpass API</p>
+              <p class="service-card-desc">史跡データ</p>
+              <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">プライバシーポリシー →</a>
+            </div>
+            <div class="service-card">
+              <p class="service-card-name">Wikimedia</p>
+              <p class="service-card-desc">Wikidata / Wikipedia / Commons</p>
+              <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">プライバシーポリシー →</a>
+            </div>
           </div>
-          <div class="service-card">
-            <p class="service-card-name">AWS Bedrock</p>
-            <p class="service-card-desc">AI解説生成</p>
-            <a href="https://aws.amazon.com/jp/privacy/" target="_blank">プライバシーポリシー →</a>
-          </div>
-          <div class="service-card">
-            <p class="service-card-name">OpenStreetMap / Overpass API</p>
-            <p class="service-card-desc">史跡データ</p>
-            <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">プライバシーポリシー →</a>
-          </div>
-          <div class="service-card">
-            <p class="service-card-name">Wikimedia</p>
-            <p class="service-card-desc">Wikidata / Wikipedia / Commons</p>
-            <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">プライバシーポリシー →</a>
-          </div>
-        </div>
-        <p style="margin-top:16px;">上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
-      </section>
+          <p style="margin-top:16px;">上記以外の目的でお客様の個人情報を第三者に提供することはありません。</p>
+        </section>
 
-      <section class="section" id="s4">
-        <p class="section-num">04</p>
-        <h2>データの保存</h2>
-        <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
-        <p>サブスクリプションの購入・決済情報はすべてApple（App Store）を通じて処理されます。本アプリはお客様の支払い情報やクレジットカード情報を取得・保存することはありません。</p>
-      </section>
+        <section class="section" id="s4-ja">
+          <p class="section-num">04</p>
+          <h2>データの保存</h2>
+          <p>収集した位置情報はデバイス上でのみ利用し、外部サーバーには保存しません。広告識別子の管理はGoogle AdMobに委託しています。</p>
+          <p>サブスクリプションの購入・決済情報はすべてApple（App Store）を通じて処理されます。本アプリはお客様の支払い情報やクレジットカード情報を取得・保存することはありません。</p>
+        </section>
 
-      <section class="section" id="s5">
-        <p class="section-num">05</p>
-        <h2>お客様の権利</h2>
-        <ul class="item-list">
-          <li>位置情報の取得は、デバイスの設定からいつでも停止できます。</li>
-          <li>広告識別子のリセットや追跡の制限は、デバイスのプライバシー設定から行えます。</li>
-          <li>サブスクリプションの確認・解約は、App Storeの「設定」>「サブスクリプション」からいつでも管理できます。</li>
-        </ul>
-      </section>
+        <section class="section" id="s5-ja">
+          <p class="section-num">05</p>
+          <h2>お客様の権利</h2>
+          <ul class="item-list">
+            <li>位置情報の取得は、デバイスの設定からいつでも停止できます。</li>
+            <li>広告識別子のリセットや追跡の制限は、デバイスのプライバシー設定から行えます。</li>
+            <li>サブスクリプションの確認・解約は、App Storeの「設定」>「サブスクリプション」からいつでも管理できます。</li>
+          </ul>
+        </section>
 
-      <section class="section" id="s6">
-        <p class="section-num">06</p>
-        <h2>未成年者について</h2>
-        <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
-      </section>
+        <section class="section" id="s6-ja">
+          <p class="section-num">06</p>
+          <h2>未成年者について</h2>
+          <p>本アプリは13歳未満の方を対象としたサービスではありません。13歳未満の方からの情報を意図的に収集することはありません。</p>
+        </section>
 
-      <section class="section" id="s7">
-        <p class="section-num">07</p>
-        <h2>ポリシーの変更</h2>
-        <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
-      </section>
+        <section class="section" id="s7-ja">
+          <p class="section-num">07</p>
+          <h2>ポリシーの変更</h2>
+          <p>本ポリシーは必要に応じて変更することがあります。変更後のポリシーはこのページに掲載し、最終更新日を更新します。</p>
+        </section>
 
-      <section class="section" id="s8">
-        <p class="section-num">08</p>
-        <h2>お問い合わせ</h2>
-        <p>本アプリに関するご質問・ご要望は以下までお問い合わせください。</p>
-        <div class="contact-card">
-          <div class="contact-row">
-            <span class="contact-key">Developer</span>
-            <span class="contact-val">noctan17</span>
+        <section class="section" id="s8-ja">
+          <p class="section-num">08</p>
+          <h2>お問い合わせ</h2>
+          <p>本アプリに関するご質問・ご要望は以下までお問い合わせください。</p>
+          <div class="contact-card">
+            <div class="contact-row">
+              <span class="contact-key">Developer</span>
+              <span class="contact-val">noctan17</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-key">Email</span>
+              <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+            </div>
           </div>
-          <div class="contact-row">
-            <span class="contact-key">Email</span>
-            <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+        </section>
+      </div>
+
+      <!-- ===== English body ===== -->
+      <div data-lang-en>
+        <p class="intro-text">
+          This Privacy Policy describes how the app "KATARIBE" ("the App") handles your personal information. By using the App, you agree to the practices described in this policy.
+        </p>
+
+        <section class="section" id="s1">
+          <p class="section-num">01</p>
+          <h2>Information We Collect</h2>
+          <ul class="item-list">
+            <li><strong>Location Data</strong> — Used to display nearby historic sites based on your current location. During navigation, location is also collected in the background. Location data is processed on-device only and is not sent to external servers.</li>
+            <li><strong>Advertising Identifier (IDFA)</strong> — Used for ad delivery through Google AdMob. We request your permission via App Tracking Transparency (ATT) before collecting this identifier.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="s2">
+          <p class="section-num">02</p>
+          <h2>How We Use Information</h2>
+          <ul class="item-list">
+            <li>Search and display nearby historic sites</li>
+            <li>Provide route navigation features</li>
+            <li>Generate AI-powered site commentary</li>
+            <li>Deliver advertisements</li>
+          </ul>
+        </section>
+
+        <section class="section" id="s3">
+          <p class="section-num">03</p>
+          <h2>Third-Party Services</h2>
+          <p>The App uses the following third-party services, each governed by their own privacy policies.</p>
+          <div class="service-grid">
+            <div class="service-card">
+              <p class="service-card-name">Google AdMob</p>
+              <p class="service-card-desc">Ad delivery</p>
+              <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy →</a>
+            </div>
+            <div class="service-card">
+              <p class="service-card-name">AWS Bedrock</p>
+              <p class="service-card-desc">AI commentary generation</p>
+              <a href="https://aws.amazon.com/privacy/" target="_blank">Privacy Policy →</a>
+            </div>
+            <div class="service-card">
+              <p class="service-card-name">OpenStreetMap / Overpass API</p>
+              <p class="service-card-desc">Historic site data</p>
+              <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy Policy →</a>
+            </div>
+            <div class="service-card">
+              <p class="service-card-name">Wikimedia</p>
+              <p class="service-card-desc">Wikidata / Wikipedia / Commons</p>
+              <a href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">Privacy Policy →</a>
+            </div>
           </div>
-        </div>
-      </section>
+          <p style="margin-top:16px;">We do not share your personal information with third parties for any purposes other than those described above.</p>
+        </section>
+
+        <section class="section" id="s4">
+          <p class="section-num">04</p>
+          <h2>Data Storage</h2>
+          <p>Location data is used only on your device and is not stored on external servers. Management of advertising identifiers is handled by Google AdMob.</p>
+          <p>Subscription purchases and payment processing are handled entirely through Apple (App Store). The App does not collect or store your payment information or credit card details.</p>
+        </section>
+
+        <section class="section" id="s5">
+          <p class="section-num">05</p>
+          <h2>Your Rights</h2>
+          <ul class="item-list">
+            <li>You can stop location data collection at any time through your device settings.</li>
+            <li>You can reset your advertising identifier or limit ad tracking through your device's privacy settings.</li>
+            <li>You can manage or cancel your subscription at any time in Settings > Subscriptions on your device.</li>
+          </ul>
+          <p style="margin-top:20px;"><strong>For users in the European Economic Area (EEA):</strong> Under the General Data Protection Regulation (GDPR), you have the right to access, rectify, or delete your personal data. Since location data is processed on-device only and not stored on our servers, there is no personal data held by us to delete. Ad-related consent can be managed through the consent dialog presented on first launch or by contacting us.</p>
+          <p><strong>For users in California (USA):</strong> Under the California Consumer Privacy Act (CCPA), you have the right to know what personal information is collected and to request its deletion. As stated above, location data stays on your device. You may opt out of ad tracking via your device's privacy settings.</p>
+        </section>
+
+        <section class="section" id="s6">
+          <p class="section-num">06</p>
+          <h2>International Users</h2>
+          <p>The App is available worldwide. Your data is processed on your device and, where applicable, through the third-party services listed above. By using the App, you consent to the processing of your information as described in this policy regardless of your country of residence.</p>
+        </section>
+
+        <section class="section" id="s7">
+          <p class="section-num">07</p>
+          <h2>Children's Privacy</h2>
+          <p>The App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+        </section>
+
+        <section class="section" id="s8">
+          <p class="section-num">08</p>
+          <h2>Changes to This Policy</h2>
+          <p>We may update this policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+        </section>
+
+        <section class="section" id="s9">
+          <p class="section-num">09</p>
+          <h2>Contact Us</h2>
+          <p>If you have any questions or concerns about this policy, please contact us.</p>
+          <div class="contact-card">
+            <div class="contact-row">
+              <span class="contact-key">Developer</span>
+              <span class="contact-val">noctan17</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-key">Email</span>
+              <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+            </div>
+          </div>
+        </section>
+      </div>
 
     </main>
   </div>
@@ -441,6 +600,43 @@
   </footer>
 
   <script>
+    // 言語切り替え
+    function setLang(lang) {
+      const html = document.documentElement;
+      const btn = document.getElementById('langToggle');
+      if (lang === 'en') {
+        html.classList.add('lang-en');
+        html.lang = 'en';
+        btn.textContent = '日本語';
+      } else {
+        html.classList.remove('lang-en');
+        html.lang = 'ja';
+        btn.textContent = 'English';
+      }
+      localStorage.setItem('kataribe-privacy-lang', lang);
+      // セクションを再監視
+      document.querySelectorAll('.section').forEach(s => {
+        s.classList.remove('visible');
+        observer.observe(s);
+      });
+    }
+
+    function toggleLang() {
+      const isEn = document.documentElement.classList.contains('lang-en');
+      setLang(isEn ? 'ja' : 'en');
+    }
+
+    // 初期言語: ブラウザ設定に合わせる（日本語以外は英語）
+    (function() {
+      const saved = localStorage.getItem('kataribe-privacy-lang');
+      if (saved) {
+        setLang(saved);
+      } else {
+        const browserLang = navigator.language || navigator.userLanguage || 'ja';
+        setLang(browserLang.startsWith('ja') ? 'ja' : 'en');
+      }
+    })();
+
     // スクロールアニメーション
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
@@ -449,21 +645,19 @@
     document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
     // TOC アクティブハイライト
-    const sections = document.querySelectorAll('.section[id]');
     const tocLinks = document.querySelectorAll('.toc-list a');
     const tocObserver = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
             tocLinks.forEach(l => l.classList.remove('active'));
-            const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
-            if (active) active.classList.add('active');
+            document.querySelectorAll(`.toc-list a[href="#${e.target.id}"]`).forEach(a => a.classList.add('active'));
           }
         });
       },
       { rootMargin: '-30% 0px -60% 0px' }
     );
-    sections.forEach(s => tocObserver.observe(s));
+    document.querySelectorAll('.section[id]').forEach(s => tocObserver.observe(s));
   </script>
 
 </body>
