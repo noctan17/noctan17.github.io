@@ -29,6 +29,7 @@ function Hero({ tweaks, activeSection, setActiveSection }) {
   const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
   const [tick, setTick] = useState(0);
   const [uptime, setUptime] = useState(0);
+  const [remaining, setRemaining] = useState({ day: 0, week: 0, year: 0 });
   const [fps, setFps] = useState(60);
   const [viewport, setViewport] = useState({ w: 0, h: 0, dpr: 1 });
   const [online, setOnline] = useState(true);
@@ -47,12 +48,26 @@ function Hero({ tweaks, activeSection, setActiveSection }) {
 
   useEffect(() => {
     const t0 = Date.now();
+    const calcRemaining = () => {
+      const now = new Date();
+      const midnight = new Date(now); midnight.setHours(24, 0, 0, 0);
+      const secDay = Math.max(0, Math.floor((midnight - now) / 1000));
+      const endOfWeek = new Date(now);
+      endOfWeek.setDate(now.getDate() + (7 - now.getDay()) % 7);
+      endOfWeek.setHours(24, 0, 0, 0);
+      const secWeek = Math.max(0, Math.floor((endOfWeek - now) / 1000));
+      const endOfYear = new Date(now.getFullYear() + 1, 0, 1);
+      const secYear = Math.max(0, Math.floor((endOfYear - now) / 1000));
+      setRemaining({ day: secDay, week: secWeek, year: secYear });
+    };
     const t = setInterval(() => {
       const d = new Date();
       const pad = (n) => String(n).padStart(2, "0");
       setTime(`${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`);
       setUptime(Math.floor((Date.now() - t0) / 1000));
+      calcRemaining();
     }, 1000);
+    calcRemaining();
     return () => clearInterval(t);
   }, []);
 
@@ -158,6 +173,18 @@ function Hero({ tweaks, activeSection, setActiveSection }) {
               <div className="hud-row">
                 <span className="hud-label">TZ</span>
                 <span className="hud-value">{env.offStr}</span>
+              </div>
+              <div className="hud-row">
+                <span className="hud-label">DAY LEFT</span>
+                <span className="hud-value">{`${String(Math.floor(remaining.day/3600)).padStart(2,"0")}:${String(Math.floor(remaining.day/60)%60).padStart(2,"0")}:${String(remaining.day%60).padStart(2,"0")}`}</span>
+              </div>
+              <div className="hud-row">
+                <span className="hud-label">WEEK LEFT</span>
+                <span className="hud-value">{`${Math.floor(remaining.week/86400)}d ${String(Math.floor(remaining.week%86400/3600)).padStart(2,"0")}:${String(Math.floor(remaining.week/60)%60).padStart(2,"0")}`}</span>
+              </div>
+              <div className="hud-row">
+                <span className="hud-label">YEAR LEFT</span>
+                <span className="hud-value">{`${Math.floor(remaining.year/86400)}d`}</span>
               </div>
             </div>
           </div>
