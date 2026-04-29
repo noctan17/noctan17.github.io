@@ -1,7 +1,113 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Section from './Section';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdayqykn';
+
+function ContactForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    const data = new FormData(e.currentTarget);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setStatus('sent');
+        formRef.current?.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    background: 'rgba(255,255,255,0.05)',
+    border: '1px solid rgba(255,255,255,0.25)',
+    color: 'rgba(255,255,255,0.92)',
+    fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace',
+    fontSize: '13px',
+    letterSpacing: '0.05em',
+    padding: '12px 16px',
+    outline: 'none',
+    borderRadius: 0,
+    boxSizing: 'border-box',
+    transition: 'border-color 0.2s',
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace',
+    fontSize: '10px',
+    letterSpacing: '0.25em',
+    color: 'rgba(255,255,255,0.45)',
+    marginBottom: '6px',
+  };
+
+  return (
+    <div style={{
+      marginTop: 40,
+      position: 'relative',
+      border: '1px solid rgba(255,255,255,0.22)',
+      background: 'rgba(255,255,255,0.04)',
+      backdropFilter: 'blur(40px)',
+      WebkitBackdropFilter: 'blur(40px)',
+      clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
+      padding: '32px',
+    }}>
+      <div style={{ marginBottom: 24, fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.35)' }}>
+        // CONTACT_FORM
+      </div>
+
+      {status === 'sent' ? (
+        <div style={{ textAlign: 'center', padding: '32px 0', fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '13px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.75)' }}>
+          TRANSMISSION SENT ✓
+        </div>
+      ) : (
+        <form ref={formRef} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div>
+            <label style={labelStyle}>NAME</label>
+            <input name="name" type="text" required placeholder="your name" style={inputStyle} />
+          </div>
+          <div>
+            <label style={labelStyle}>EMAIL</label>
+            <input name="email" type="email" required placeholder="your@email.com" style={inputStyle} />
+          </div>
+          <div>
+            <label style={labelStyle}>MESSAGE</label>
+            <textarea name="message" required rows={5} placeholder="your message..." style={{ ...inputStyle, resize: 'vertical' }} />
+          </div>
+          {status === 'error' && (
+            <p style={{ fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '11px', color: 'rgba(255,80,80,0.8)', letterSpacing: '0.1em', margin: 0 }}>
+              TRANSMISSION FAILED — try again
+            </p>
+          )}
+          <button
+            type="submit"
+            disabled={status === 'sending'}
+            className="ghost-cta"
+            style={{ alignSelf: 'flex-start', opacity: status === 'sending' ? 0.5 : 1 }}
+          >
+            <span>{status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
 
 function ArrowUpRight({ size = 14 }: { size?: number }) {
   return (
@@ -29,6 +135,7 @@ export default function ContactSection() {
         Taking on a small number of engagements per quarter.
         0-to-1 product, design systems, motion-heavy interfaces.
       </p>
+      <ContactForm />
       <div className="social-row">
         <a className="social-pill" href="#" onClick={handleCopyEmail} aria-label="Email" style={{ transition: 'color 0.2s' }}>
           {copied
