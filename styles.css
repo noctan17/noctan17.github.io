@@ -898,7 +898,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
 .lead-hud-block {
   position: relative;
   max-width: 720px;
-  border: 1px solid rgba(0, 200, 230, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
@@ -906,18 +906,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
   box-shadow:
     0 8px 32px rgba(20, 30, 50, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.3) inset,
-    inset 0 0 60px rgba(0, 200, 230, 0.06);
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
 }
 .lead-hud-block::before {
-  content: "";
-  position: absolute;
-  top: 10px; left: 10px;
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 12px rgba(0, 200, 230, 0.6);
-  animation: hudPulse 2s ease-in-out infinite;
+  display: none;
 }
 @keyframes hudPulse {
   0%, 100% { opacity: 1; }
@@ -928,7 +920,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.3em;
-  color: var(--mono-color);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 14px;
   margin-left: 14px;
 }
@@ -1186,10 +1178,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
 .sec .social-pill {
   display: inline-flex; align-items: center; gap: 12px;
   padding: 12px 18px;
-  border: 1px solid rgba(0, 230, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 0;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  background: rgba(0, 200, 230, 0.06);
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: rgba(255,255,255,0.95);
@@ -1198,19 +1190,13 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   letter-spacing: 0.02em;
   transition: all 240ms cubic-bezier(.2,.8,.2,1);
   text-shadow: 0 1px 2px rgba(0,20,35,0.4);
-  box-shadow:
-    0 4px 16px rgba(0, 120, 150, 0.18),
-    inset 0 0 30px rgba(0, 200, 230, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 .sec .social-pill:hover {
-  background: rgba(0, 220, 255, 0.1);
-  border-color: rgba(0, 235, 255, 0.7);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.45);
   transform: translateY(-2px);
-  box-shadow:
-    0 12px 32px rgba(0, 120, 150, 0.28),
-    0 0 0 1px rgba(0, 235, 255, 0.3) inset,
-    inset 0 0 50px rgba(0, 200, 230, 0.12),
-    0 0 40px -8px rgba(0, 220, 255, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 .sec .social-pill svg {
   flex-shrink: 0;
@@ -1292,8 +1278,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   .dock {
     flex-direction: row;
     grid-template-columns: 1fr;
-    bottom: 16px; left: 16px; right: 16px;
-    top: auto;
+    top: 16px; left: 16px; right: 16px;
+    bottom: auto;
     height: auto; padding: 12px;
   }
   .dock-brand, .dock-cta { display: none; }

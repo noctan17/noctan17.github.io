@@ -180,11 +180,11 @@ function Hero({ tweaks, activeSection, setActiveSection }) {
               </div>
               <div className="hud-row">
                 <span className="hud-label">WEEK LEFT</span>
-                <span className="hud-value">{`${Math.floor(remaining.week/86400)}d ${String(Math.floor(remaining.week%86400/3600)).padStart(2,"0")}:${String(Math.floor(remaining.week/60)%60).padStart(2,"0")}`}</span>
+                <span className="hud-value">{`${Math.floor(remaining.week/86400)}d ${String(Math.floor(remaining.week%86400/3600)).padStart(2,"0")}:${String(Math.floor(remaining.week/60)%60).padStart(2,"0")}:${String(remaining.week%60).padStart(2,"0")}`}</span>
               </div>
               <div className="hud-row">
                 <span className="hud-label">YEAR LEFT</span>
-                <span className="hud-value">{`${Math.floor(remaining.year/86400)}d`}</span>
+                <span className="hud-value">{`${Math.floor(remaining.year/86400)}d ${String(Math.floor(remaining.year%86400/3600)).padStart(2,"0")}:${String(Math.floor(remaining.year/60)%60).padStart(2,"0")}:${String(remaining.year%60).padStart(2,"0")}`}</span>
               </div>
             </div>
           </div>
