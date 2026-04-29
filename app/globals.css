@@ -1385,7 +1385,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   html, body { overflow: auto; height: auto; }
   .page { height: auto; }
   .hero { height: auto; min-height: 100vh; padding-bottom: 120px; }
-  .hero-img-wrap { position: fixed; inset: 0; transition: none; }
+  .hero-img-wrap { position: fixed; top: 0; left: 0; right: 0; height: 100lvh; transition: none; }
   .panel {
     position: relative;
     top: auto; right: auto; bottom: auto;
