@@ -321,11 +321,21 @@ function WorkSection() {
           <div className="tags">
             {PROJECTS[active].tags.map((t) => <span key={t}>{t}</span>)}
           </div>
-          {PROJECTS[active].href && (
-            <a className="ghost-cta" href={PROJECTS[active].href} target="_blank" rel="noreferrer" style={{marginTop: 24}}>
-              <span>VIEW ON APP STORE</span>
-              <ArrowUpRight size={14}/>
-            </a>
+          {(PROJECTS[active].href || PROJECTS[active].privacyHref) && (
+            <div style={{display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap"}}>
+              {PROJECTS[active].href && (
+                <a className="ghost-cta" href={PROJECTS[active].href} target="_blank" rel="noreferrer">
+                  <span>VIEW ON APP STORE</span>
+                  <ArrowUpRight size={14}/>
+                </a>
+              )}
+              {PROJECTS[active].privacyHref && (
+                <a className="ghost-cta" href={PROJECTS[active].privacyHref} target="_blank" rel="noreferrer">
+                  <span>PRIVACY POLICY</span>
+                  <ArrowUpRight size={14}/>
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -386,6 +396,15 @@ function StackSection({ style }) {
 }
 
 function ContactSection() {
+  const [copied, setCopied] = useState(false);
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    const m = ['noctana177', 'gmail.com'].join('@');
+    navigator.clipboard.writeText(m).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
   return (
     <Section id="contact" num="03" label="CONTACT" title="Initiate Transmission" screenLabel="05 Contact">
       <div className="lead-hud-block">
@@ -396,9 +415,12 @@ function ContactSection() {
         </p>
       </div>
       <div className="social-row">
-        <a className="social-pill" href="#" onClick={(e) => { e.preventDefault(); const m = ['noctana177','gmail.com'].join('@'); window.location.href = 'mailto:' + m; }} aria-label="Email">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-          <span className="social-handle">noctana177<span style={{opacity:0,fontSize:0}}>_NOSPAM_</span>@gmail.com</span>
+        <a className="social-pill" href="#" onClick={handleCopyEmail} aria-label="Email" style={{transition: "color 0.2s"}}>
+          {copied
+            ? <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            : <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          }
+          <span className="social-handle">{copied ? "COPIED!" : <>noctana177<span style={{opacity:0,fontSize:0}}>_NOSPAM_</span>@gmail.com</>}</span>
         </a>
         <a className="social-pill" href="https://github.com/noctan17" target="_blank" rel="noreferrer" aria-label="GitHub">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -432,6 +454,7 @@ const PROJECTS = [
     desc: "AI-guided historical-spot map app for iOS. SwiftUI client + AWS Lambda backend. AI character \"Kunato\" narrates landmarks via Bedrock; map shows nearby castles, shrines, and battlefields from your location.",
     tags: ["SWIFTUI", "LAMBDA", "BEDROCK", "AI"],
     href: "https://apps.apple.com/jp/app/kataribe-%E6%AD%B4%E5%8F%B2%E3%82%B9%E3%83%9D%E3%83%83%E3%83%88%E6%95%A3%E7%AD%96%E3%83%9E%E3%83%83%E3%83%97/id6759606727",
+    privacyHref: "https://noctan17.github.io/kataribe/privacy/",
   },
   {
     id: "P-002", year: "2025", title: "TexCrafter",
