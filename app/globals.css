@@ -1418,3 +1418,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
     inset 0 0 80px rgba(0, 200, 230, 0.14),
     0 0 50px -12px rgba(0, 220, 255, 0.5);
 }
+
+.contact-input:focus {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(0,229,255,0.6);
+  outline: none;
+}

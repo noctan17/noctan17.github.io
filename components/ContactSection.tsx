@@ -77,15 +77,15 @@ function ContactForm() {
         <form ref={formRef} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div>
             <label style={labelStyle}>NAME</label>
-            <input name="name" type="text" required placeholder="your name" style={inputStyle} />
+            <input name="name" type="text" required placeholder="your name" style={inputStyle} className="contact-input" />
           </div>
           <div>
             <label style={labelStyle}>EMAIL</label>
-            <input name="email" type="email" required placeholder="your@email.com" style={inputStyle} />
+            <input name="email" type="email" required placeholder="your@email.com" style={inputStyle} className="contact-input" />
           </div>
           <div>
             <label style={labelStyle}>MESSAGE</label>
-            <textarea name="message" required rows={5} placeholder="your message..." style={{ ...inputStyle, resize: 'vertical' }} />
+            <textarea name="message" required rows={5} placeholder="your message..." style={{ ...inputStyle, resize: 'vertical' }} className="contact-input" />
           </div>
           {status === 'error' && (
             <p style={{ fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '11px', color: 'rgba(255,80,80,0.8)', letterSpacing: '0.1em', margin: 0 }}>
