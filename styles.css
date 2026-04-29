@@ -1080,6 +1080,15 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
     0 6px 24px rgba(20, 30, 50, 0.08),
     0 0 0 1px rgba(255, 255, 255, 0.4) inset;
 }
+.sec .stack-group .lead {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  clip-path: none;
+}
 .sec .stack-group::after {
   content: "";
   position: absolute;
@@ -1270,7 +1279,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   html, body { overflow: auto; height: auto; }
   .page { height: auto; }
   .hero { height: auto; min-height: 100vh; padding-bottom: 120px; }
-  .hero-img-wrap { position: absolute; inset: 0; transition: none; }
+  .hero-img-wrap { position: fixed; inset: 0; transition: none; }
   .panel {
     position: relative;
     top: auto; right: auto; bottom: auto;
@@ -1362,7 +1371,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   .lead-cyan { font-size: 15px !important; }
   .sec .stack-group .stack-icon { width: 18px; height: 18px; }
 
-  .dock { left: 8px; right: 8px; bottom: 8px; padding: 8px; }
+  .dock { top: 8px; left: 8px; right: 8px; bottom: auto; padding: 8px; }
   .dock-tab { padding: 6px 8px; font-size: 9px; letter-spacing: 0.15em; }
 
   .sec .social-pill { padding: 10px 14px; font-size: 12px; }
