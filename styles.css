@@ -1351,7 +1351,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
 }
 
 @media (max-width: 480px) {
-  .hero-content { left: 16px; right: 16px; padding-top: 80px; }
+  .hero-content { left: 16px; right: 16px; padding-top: 100px; }
   .hero-title { font-size: clamp(40px, 14vw, 80px) !important; }
   .hero-sub { font-size: 14px; }
   .hud-corner.tl { display: none; }
