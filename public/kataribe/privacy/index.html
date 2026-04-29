@@ -6,16 +6,16 @@
   <title>Privacy Policy — KATARIBE</title>
   <style>
     :root {
-      --bg:       #0a0a0a;
-      --bg2:      #111111;
-      --bg3:      #181818;
-      --border:   rgba(255,255,255,0.07);
-      --border2:  rgba(255,255,255,0.12);
-      --text:     #f0f0f0;
-      --text2:    rgba(240,240,240,0.5);
-      --text3:    rgba(240,240,240,0.25);
-      --accent:   #4f8eff;
-      --accent2:  rgba(79,142,255,0.12);
+      --bg:       #0c0d1e;
+      --bg2:      #13142c;
+      --bg3:      #1c1d3e;
+      --border:   rgba(139,140,240,0.12);
+      --border2:  rgba(139,140,240,0.22);
+      --text:     #f0f0f8;
+      --text2:    rgba(240,240,248,0.55);
+      --text3:    rgba(240,240,248,0.28);
+      --accent:   #8b8cf0;
+      --accent2:  rgba(139,140,240,0.12);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,6 +23,7 @@
 
     body {
       background: var(--bg);
+      background-image: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(45,40,110,0.35) 0%, transparent 70%);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
       font-size: 15px;
@@ -39,10 +40,18 @@
       justify-content: space-between;
     }
     .site-header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--text);
+    }
+    .site-header .logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
     }
     .header-right {
       display: flex;
@@ -62,7 +71,7 @@
       font-size: 12px;
       color: var(--accent);
       background: var(--accent2);
-      border: 1px solid rgba(79,142,255,0.2);
+      border: 1px solid rgba(139,140,240,0.25);
       border-radius: 20px;
       padding: 4px 12px;
       cursor: pointer;
@@ -70,7 +79,7 @@
       transition: background 0.15s, border-color 0.15s;
     }
     .lang-switch:hover {
-      background: rgba(79,142,255,0.2);
+      background: rgba(139,140,240,0.22);
       border-color: var(--accent);
     }
 
@@ -80,7 +89,20 @@
       border-bottom: 1px solid var(--border);
       max-width: 1100px;
       margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
     }
+    .hero-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      flex-shrink: 0;
+      margin-top: 8px;
+      box-shadow: 0 8px 32px rgba(30, 30, 100, 0.5), 0 0 0 1px rgba(139,140,240,0.2);
+    }
+    .hero-text { flex: 1; }
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -230,7 +252,7 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(79,142,255,0.25);
+      border-bottom: 1px solid rgba(139,140,240,0.25);
       transition: border-color 0.15s;
     }
     a:hover { border-color: var(--accent); }
@@ -318,7 +340,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .site-header { padding: 16px 20px; }
-      .hero { padding: 56px 20px 48px; }
+      .hero { padding: 48px 20px 40px; gap: 24px; }
+      .hero-icon { width: 64px; height: 64px; border-radius: 16px; }
       .page {
         grid-template-columns: 1fr;
         padding: 0 20px 80px;
@@ -332,7 +355,7 @@
 <body>
 
   <header class="site-header">
-    <span class="logo">KATARIBE</span>
+    <span class="logo"><img src="../../assets/kataribe-icon.png" alt="" />KATARIBE</span>
     <div class="header-right">
       <button class="lang-switch" id="langToggle" onclick="toggleLang()">English</button>
       <span class="badge">Privacy Policy</span>
@@ -340,10 +363,13 @@
   </header>
 
   <div class="hero">
-    <p class="hero-tag">Legal</p>
-    <h1>Privacy<br>Policy</h1>
-    <p class="hero-meta" data-lang-ja>Last updated: April 12, 2026 &nbsp;·&nbsp; KATARIBE App</p>
-    <p class="hero-meta" data-lang-en>Last updated: April 12, 2026 &nbsp;·&nbsp; KATARIBE App</p>
+    <img class="hero-icon" src="../../assets/kataribe-icon.png" alt="KATARIBE" />
+    <div class="hero-text">
+      <p class="hero-tag">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="hero-meta" data-lang-ja>Last updated: April 12, 2026 &nbsp;·&nbsp; KATARIBE App</p>
+      <p class="hero-meta" data-lang-en>Last updated: April 12, 2026 &nbsp;·&nbsp; KATARIBE App</p>
+    </div>
   </div>
 
   <div class="page">
@@ -384,7 +410,7 @@
       <!-- ===== 日本語本文 ===== -->
       <div data-lang-ja>
         <p class="intro-text">
-          本プライバシーポリシーは、アプリ「KATARIBE（かたりべ）」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
+          本プライバシーポリシーは、アプリ「KATARIBE-歴史スポット散策マップ」（以下「本アプリ」）における個人情報の取り扱いについて説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。
         </p>
 
         <section class="section" id="s1-ja">
@@ -467,11 +493,11 @@
           <div class="contact-card">
             <div class="contact-row">
               <span class="contact-key">Developer</span>
-              <span class="contact-val">noctan17</span>
+              <span class="contact-val"><a href="https://noctan17.github.io" target="_blank">noctana</a></span>
             </div>
             <div class="contact-row">
               <span class="contact-key">Email</span>
-              <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+              <span class="contact-val"><a href="mailto:noctana177@gmail.com">noctana177@gmail.com</a></span>
             </div>
           </div>
         </section>
@@ -571,11 +597,11 @@
           <div class="contact-card">
             <div class="contact-row">
               <span class="contact-key">Developer</span>
-              <span class="contact-val">noctan17</span>
+              <span class="contact-val"><a href="https://noctan17.github.io" target="_blank">noctana</a></span>
             </div>
             <div class="contact-row">
               <span class="contact-key">Email</span>
-              <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+              <span class="contact-val"><a href="mailto:noctana177@gmail.com">noctana177@gmail.com</a></span>
             </div>
           </div>
         </section>
@@ -586,7 +612,10 @@
 
   <footer>
     <span class="f-logo">KATARIBE</span>
-    <span class="f-date">© 2026 noctan17</span>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="https://noctan17.github.io" target="_blank" style="font-size:11px;color:var(--text3);border-bottom:none;letter-spacing:0.04em;">noctan17.github.io ↗</a>
+      <span class="f-date">© 2026 noctan17</span>
+    </div>
   </footer>
 
   <script>
