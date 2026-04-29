@@ -848,15 +848,13 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
 }
 /* ========== Section Scroll Entrance ========== */
 .sec .sec-head,
-.sec .sec-title,
-.sec .sec-body {
+.sec .sec-title {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.35s linear, transform 0.35s linear;
 }
 .sec.sec-visible .sec-head  { opacity: 1; transform: translateY(0); transition-delay: 0s; }
 .sec.sec-visible .sec-title { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-.sec.sec-visible .sec-body  { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
 
 .sec-head {
   display: flex; align-items: center; gap: 16px;
