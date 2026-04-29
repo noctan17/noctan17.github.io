@@ -25,12 +25,10 @@ export default function ContactSection() {
 
   return (
     <Section id="contact" num="03" label="CONTACT" title="Initiate Transmission" screenLabel="05 Contact">
-      <div className="stack-group">
-        <p className="lead" style={{ margin: 0 }}>
-          Taking on a small number of engagements per quarter.
-          0-to-1 product, design systems, motion-heavy interfaces.
-        </p>
-      </div>
+      <p className="lead lead-cyan" style={{ marginBottom: 32 }}>
+        Taking on a small number of engagements per quarter.
+        0-to-1 product, design systems, motion-heavy interfaces.
+      </p>
       <div className="social-row">
         <a className="social-pill" href="#" onClick={handleCopyEmail} aria-label="Email" style={{ transition: 'color 0.2s' }}>
           {copied
