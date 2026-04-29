@@ -50,7 +50,7 @@ function ContactForm() {
     fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace',
     fontSize: '10px',
     letterSpacing: '0.25em',
-    color: 'rgba(255,255,255,0.45)',
+    color: 'rgba(0,229,255,0.7)',
     marginBottom: '6px',
   };
 
@@ -65,7 +65,7 @@ function ContactForm() {
       clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
       padding: '32px',
     }}>
-      <div style={{ marginBottom: 24, fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.35)' }}>
+      <div style={{ marginBottom: 24, fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(0,229,255,0.7)' }}>
         // CONTACT_FORM
       </div>
 
@@ -135,7 +135,6 @@ export default function ContactSection() {
         Taking on a small number of engagements per quarter.
         0-to-1 product, design systems, motion-heavy interfaces.
       </p>
-      <ContactForm />
       <div className="social-row">
         <a className="social-pill" href="#" onClick={handleCopyEmail} aria-label="Email" style={{ transition: 'color 0.2s' }}>
           {copied
@@ -168,6 +167,7 @@ export default function ContactSection() {
           <span className="social-handle">KATARIBE</span>
         </a>
       </div>
+      <ContactForm />
     </Section>
   );
 }
