@@ -434,9 +434,8 @@ function ContactSection() {
   };
   return (
     <Section id="contact" num="03" label="CONTACT" title="Initiate Transmission" screenLabel="05 Contact">
-      <div className="lead-hud-block">
-        <span className="lead-hud-block-tag">// SIGNAL_INBOUND</span>
-        <p className="lead lead-hud-inner">
+      <div className="stack-group">
+        <p className="lead" style={{margin: 0}}>
           Taking on a small number of engagements per quarter.
           0-to-1 product, design systems, motion-heavy interfaces.
         </p>
