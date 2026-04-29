@@ -18,11 +18,32 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Noctana-web',
-  description: 'Full Stack Developer Portfolio',
+  title: 'NOCTANA — Full Stack Developer',
+  description: 'Full Stack Developer. 0-to-1 product, design systems, motion-heavy interfaces.',
   icons: {
     icon: '/assets/favicon-32.png',
     apple: '/assets/favicon.png',
+  },
+  openGraph: {
+    title: 'NOCTANA — Full Stack Developer',
+    description: 'Full Stack Developer. 0-to-1 product, design systems, motion-heavy interfaces.',
+    url: 'https://noctan17.github.io',
+    siteName: 'NOCTANA',
+    images: [
+      {
+        url: 'https://noctan17.github.io/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'NOCTANA — Full Stack Developer',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NOCTANA — Full Stack Developer',
+    description: 'Full Stack Developer. 0-to-1 product, design systems, motion-heavy interfaces.',
+    images: ['https://noctan17.github.io/assets/og-image.png'],
   },
 };
 
