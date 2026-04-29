@@ -26,6 +26,9 @@ export default function Hero({ activeSection, setActiveSection }: HeroProps) {
   const [online, setOnline] = useState(true);
 
   const env = useMemo(() => {
+    if (typeof window === 'undefined') {
+      return { lang: 'en-US', tz: 'UTC', offStr: 'UTC+00:00', platform: 'Web', cores: '—' };
+    }
     const lang = navigator.language || 'en-US';
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     const tzOffset = -new Date().getTimezoneOffset();
