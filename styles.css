@@ -1275,7 +1275,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
     height: auto;
     max-height: 60vh;
   }
-  .hero-content { position: relative; bottom: auto; left: 24px; right: 24px; padding-top: 100px; max-width: 90%; }
+  .hero-content { position: relative; bottom: auto; left: 24px; right: 24px; padding-top: 108px; max-width: 90%; }
+  .hud-corner.tl { top: 16px; left: 16px; }
   .hud-corner.tr, .hud-corner.bl, .hud-corner.br { display: none; }
   .dock {
     flex-direction: row;
