@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import Dock from './Dock';
 import { HERO_NAME, HERO_ROLE, HERO_EFFECT, SHOW_SCANLINES, SHOW_HUD, SHOW_GRID } from '@/lib/constants';
 
@@ -25,10 +25,9 @@ export default function Hero({ activeSection, setActiveSection }: HeroProps) {
   const [viewport, setViewport] = useState({ w: 0, h: 0, dpr: 1 });
   const [online, setOnline] = useState(true);
 
-  const env = useMemo(() => {
-    if (typeof window === 'undefined') {
-      return { lang: 'en-US', tz: 'UTC', offStr: 'UTC+00:00', platform: 'Web', cores: '—' };
-    }
+  const [env, setEnv] = useState({ lang: 'en-US', tz: 'UTC', offStr: 'UTC+00:00', platform: 'Web', cores: '—' as string | number });
+
+  useEffect(() => {
     const lang = navigator.language || 'en-US';
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     const tzOffset = -new Date().getTimezoneOffset();
@@ -37,7 +36,7 @@ export default function Hero({ activeSection, setActiveSection }: HeroProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const platform = ((navigator as any).userAgentData?.platform || navigator.platform || 'Web').split(' ')[0];
     const cores = navigator.hardwareConcurrency || '—';
-    return { lang, tz, offStr, platform, cores };
+    setEnv({ lang, tz, offStr, platform, cores });
   }, []);
 
   useEffect(() => {
@@ -146,7 +145,7 @@ export default function Hero({ activeSection, setActiveSection }: HeroProps) {
           <div className="hud-corner tl">
             <span className="hud-bracket" />
             <div className="hud-stack">
-              <div className="hud-row"><span className="hud-dot rec" /><span className="hud-meta">REC · {time}</span></div>
+              <div className="hud-row"><span className="hud-label">TIME</span><span className="hud-value">{time}</span></div>
               <div className="hud-row"><span className="hud-label">UPTIME</span><span className="hud-value">{hms(uptime)}</span></div>
               <div className="hud-row"><span className="hud-label">TZ</span><span className="hud-value">{env.offStr}</span></div>
               <div className="hud-row"><span className="hud-label">DAY LEFT</span><span className="hud-value">{hms(remaining.day)}</span></div>

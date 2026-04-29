@@ -252,8 +252,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
 }
 .hud-corner.tl .hud-bracket { border-right: 0; border-bottom: 0; }
 .hud-corner.tr .hud-bracket { border-left: 0; border-bottom: 0; }
-.hud-corner.bl .hud-bracket { border-right: 0; border-top: 0; }
-.hud-corner.br .hud-bracket { border-left: 0; border-top: 0; }
+.hud-corner.bl .hud-bracket { border-right: 0; border-top: 0; align-self: flex-end; margin-top: 0; margin-bottom: 2px; }
+.hud-corner.br .hud-bracket { border-left: 0; border-top: 0; align-self: flex-end; margin-top: 0; margin-bottom: 2px; }
 .hud-meta { white-space: nowrap; opacity: 0.85; }
 
 /* Reticle */
@@ -846,6 +846,18 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   scroll-margin-top: 40px;
   font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+/* ========== Section Scroll Entrance ========== */
+.sec .sec-head,
+.sec .sec-title,
+.sec .sec-body {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.35s linear, transform 0.35s linear;
+}
+.sec.sec-visible .sec-head  { opacity: 1; transform: translateY(0); transition-delay: 0s; }
+.sec.sec-visible .sec-title { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.sec.sec-visible .sec-body  { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+
 .sec-head {
   display: flex; align-items: center; gap: 16px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -1252,6 +1264,96 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   0%, 100% { transform: scaleY(0.4); transform-origin: top; opacity: 0.6; }
   50% { transform: scaleY(1); opacity: 1; }
 }
+
+/* ========== Hero Entrance Animations ========== */
+/* Snap from center → flicker → lock */
+@keyframes hudBootTL {
+  0%, 22%  { opacity: 0; transform: translate(30vw, 22vh); }
+  23%      { opacity: 1; transform: translate(0, 0); filter: blur(1px); }
+  27%      { opacity: 0; }
+  33%      { opacity: 1; }
+  37%      { opacity: 0; }
+  43%      { opacity: 1; }
+  46%      { opacity: 0; }
+  54%      { opacity: 1; filter: blur(0); }
+  100%     { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes hudBootTR {
+  0%, 22%  { opacity: 0; transform: translate(-30vw, 22vh); }
+  23%      { opacity: 1; transform: translate(0, 0); filter: blur(1px); }
+  27%      { opacity: 0; }
+  33%      { opacity: 1; }
+  37%      { opacity: 0; }
+  43%      { opacity: 1; }
+  46%      { opacity: 0; }
+  54%      { opacity: 1; filter: blur(0); }
+  100%     { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes hudBootBL {
+  0%, 22%  { opacity: 0; transform: translate(30vw, -22vh); }
+  23%      { opacity: 1; transform: translate(0, 0); filter: blur(1px); }
+  27%      { opacity: 0; }
+  33%      { opacity: 1; }
+  37%      { opacity: 0; }
+  43%      { opacity: 1; }
+  46%      { opacity: 0; }
+  54%      { opacity: 1; filter: blur(0); }
+  100%     { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes hudBootBR {
+  0%, 22%  { opacity: 0; transform: translate(-30vw, -22vh); }
+  23%      { opacity: 1; transform: translate(0, 0); filter: blur(1px); }
+  27%      { opacity: 0; }
+  33%      { opacity: 1; }
+  37%      { opacity: 0; }
+  43%      { opacity: 1; }
+  46%      { opacity: 0; }
+  54%      { opacity: 1; filter: blur(0); }
+  100%     { opacity: 1; transform: translate(0, 0); }
+}
+/* NOCTANA: flicker-lock (same style as HUD corners) */
+@keyframes titleScan {
+  0%, 18%  { opacity: 0; transform: translateY(8px); }
+  19%      { opacity: 1; transform: translateY(0); }
+  23%      { opacity: 0; }
+  28%      { opacity: 1; }
+  31%      { opacity: 0; }
+  42%      { opacity: 1; }
+  46%      { opacity: 0.3; }
+  56%      { opacity: 1; }
+  100%     { opacity: 1; transform: translateY(0); }
+}
+/* Sub + scroll: simple flicker-in */
+@keyframes subBoot {
+  0%, 55%  { opacity: 0; transform: translateY(6px); }
+  56%      { opacity: 1; transform: translateY(0); }
+  60%      { opacity: 0; }
+  65%      { opacity: 1; }
+  68%      { opacity: 0; }
+  78%      { opacity: 1; }
+  100%     { opacity: 1; }
+}
+@keyframes heroScrollIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Idle ambient flicker — fires occasionally, each element desynced */
+@keyframes ambientFlicker {
+  0%, 87%, 88.5%, 89.5%, 90.5%, 91%, 100% { opacity: 1; }
+  87.8%  { opacity: 0.05; }
+  89%    { opacity: 0.5; }
+  90%    { opacity: 0; }
+  90.8%  { opacity: 0.2; }
+}
+
+.hud-corner.tl { animation: hudBootTL 1.3s linear 0.15s both, ambientFlicker 5s linear 2s infinite; }
+.hud-corner.tr { animation: hudBootTR 1.3s linear 0.3s  both, ambientFlicker 5s linear 2s infinite; }
+.hud-corner.bl { animation: hudBootBL 1.3s linear 0.3s  both, ambientFlicker 5s linear 2s infinite; }
+.hud-corner.br { animation: hudBootBR 1.3s linear 0.45s both, ambientFlicker 5s linear 2s infinite; }
+.hero-title    { animation: titleScan 1.5s linear 0.4s  both, ambientFlicker 5s linear 2s infinite; }
+.hero-sub      { animation: subBoot   1.2s linear 0.85s both, ambientFlicker 5s linear 2s infinite; }
+.hero-scroll-hint { animation: heroScrollIn 0.5s linear 1.4s both; }
 
 /* Speed lines (motion) */
 .speed-lines {

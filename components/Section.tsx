@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef, useEffect, useState } from 'react';
+
 interface SectionProps {
   id: string;
   num: string;
@@ -8,8 +12,22 @@ interface SectionProps {
 }
 
 export default function Section({ id, num, label, title, screenLabel, children }: SectionProps) {
+  const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.08 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <section id={id} className="sec" data-screen-label={screenLabel}>
+    <section ref={ref} id={id} className={`sec${visible ? ' sec-visible' : ''}`} data-screen-label={screenLabel}>
       <div className="sec-head">
         <span className="sec-num">{num}</span>
         <span className="sec-label">{label}</span>
