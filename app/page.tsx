@@ -39,6 +39,9 @@ export default function Page() {
         <StackSection />
         <ContactSection />
       </main>
+      <footer style={{ textAlign: 'center', padding: '32px 24px', fontFamily: 'var(--font-jetbrains-mono), ui-monospace, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)' }}>
+        © {new Date().getFullYear()} noctana
+      </footer>
     </div>
   );
 }
