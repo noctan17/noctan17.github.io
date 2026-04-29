@@ -330,7 +330,7 @@ function WorkSection() {
                 </a>
               )}
               {PROJECTS[active].privacyHref && (
-                <a className="ghost-cta" href={PROJECTS[active].privacyHref} target="_blank" rel="noreferrer">
+                <a className="ghost-cta ghost-cta--white" href={PROJECTS[active].privacyHref} target="_blank" rel="noreferrer">
                   <span>PRIVACY POLICY</span>
                   <ArrowUpRight size={14}/>
                 </a>

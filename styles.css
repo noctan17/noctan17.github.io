@@ -442,6 +442,17 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   background: rgba(0,229,255,0.1);
   box-shadow: 0 0 28px rgba(0,229,255,0.25);
 }
+.ghost-cta--white {
+  color: rgba(255,255,255,0.75);
+  border-color: rgba(255,255,255,0.35);
+}
+.ghost-cta--white::before, .ghost-cta--white::after {
+  border-color: rgba(255,255,255,0.35);
+}
+.ghost-cta--white:hover {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 20px rgba(255,255,255,0.12);
+}
 
 /* WORK tab */
 .tab.work { padding: 0; }
