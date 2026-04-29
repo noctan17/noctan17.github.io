@@ -853,14 +853,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: 0; paddin
   transform: translateY(14px);
   transition: opacity 0.35s linear, transform 0.35s linear;
 }
-.sec .sec-body { clip-path: inset(0 50% 0 50%); }
 .sec.sec-visible .sec-head  { opacity: 1; transform: translateY(0); transition-delay: 0s; }
 .sec.sec-visible .sec-title { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-.sec.sec-visible .sec-body  { animation: secBodyScan 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-@keyframes secBodyScan {
-  0%   { clip-path: inset(0 50% 0 50%); }
-  100% { clip-path: inset(0 0% 0 0%); }
-}
 
 .sec-head {
   display: flex; align-items: center; gap: 16px;
