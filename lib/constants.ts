@@ -7,6 +7,7 @@ export interface Project {
   desc: string;
   tags: string[];
   href: string | null;
+  siteHref?: string;
   privacyHref?: string;
 }
 
@@ -31,6 +32,7 @@ export const PROJECTS: Project[] = [
     desc: 'AI-guided historical-spot map app for iOS. SwiftUI client + AWS Lambda backend. AI character "Kunato" narrates landmarks via Bedrock; map shows nearby castles, shrines, and battlefields from your location.',
     tags: ['SWIFTUI', 'LAMBDA', 'BEDROCK', 'AI'],
     href: 'https://apps.apple.com/jp/app/kataribe-%E6%AD%B4%E5%8F%B2%E3%82%B9%E3%83%9D%E3%83%83%E3%83%88%E6%95%A3%E7%AD%96%E3%83%9E%E3%83%83%E3%83%97/id6759606727',
+    siteHref: 'https://noctan17.github.io/kataribe-guide/',
     privacyHref: 'https://noctan17.github.io/kataribe/privacy/',
   },
   {

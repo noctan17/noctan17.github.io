@@ -50,11 +50,17 @@ export default function WorkSection() {
           <div className="tags">
             {p.tags.map((t) => <span key={t}>{t}</span>)}
           </div>
-          {(p.href || p.privacyHref) && (
+          {(p.href || p.siteHref || p.privacyHref) && (
             <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
               {p.href && (
                 <a className="ghost-cta" href={p.href} target="_blank" rel="noreferrer">
                   <span>VIEW ON APP STORE</span>
+                  <ArrowUpRight />
+                </a>
+              )}
+              {p.siteHref && (
+                <a className="ghost-cta" href={p.siteHref} target="_blank" rel="noreferrer">
+                  <span>OFFICIAL SITE</span>
                   <ArrowUpRight />
                 </a>
               )}
