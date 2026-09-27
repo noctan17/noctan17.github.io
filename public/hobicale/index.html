@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja" data-langs="ja,en,zh-Hans,zh-Hant,ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホビカレ / HobiCale — Support</title>
+  <meta name="description" content="ホビカレ（HobiCale）は、好きな作品のフィギュア・プラモデル・グッズの予約締切と発売日をカレンダーと通知で知らせる iPhone アプリです。">
+  <meta property="og:title" content="ホビカレ / HobiCale">
+  <meta property="og:description" content="フィギュア・プラモ・グッズの予約締切と発売日をカレンダーと通知でお知らせ。">
+  <meta property="og:image" content="https://noctan17.github.io/assets/hobicale-icon.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="../assets/hobicale-icon.png">
+  <link rel="apple-touch-icon" href="../assets/hobicale-icon.png">
+  <link rel="stylesheet" href="hobicale.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="./"><img src="../assets/hobicale-icon.png" alt="" />
+      <span data-l="ja">ホビカレ</span><span data-l="en">HobiCale</span><span data-l="zh-Hans">兴趣日历</span><span data-l="zh-Hant">興趣日曆</span><span data-l="ko">호비카레</span>
+    </a>
+    <nav class="lang-switch" aria-label="Language">
+      <button type="button" data-set-lang="ja" aria-pressed="true">日本語</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+      <button type="button" data-set-lang="zh-Hans" aria-pressed="false">简体中文</button>
+      <button type="button" data-set-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+      <button type="button" data-set-lang="ko" aria-pressed="false">한국어</button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <div class="hero">
+    <img class="hero-icon" src="../assets/hobicale-icon.png" alt="HobiCale" />
+    <div class="hero-text">
+      <p class="hero-tag">iPhone App</p>
+
+      <div data-l="ja">
+        <h1>ホビカレ</h1>
+        <p class="hero-lead">好きな作品をフォローするだけで、フィギュア・プラモデル・グッズの予約締切と発売日をカレンダーと通知でお知らせ。先着予約・抽選・受注生産の「うっかり見逃し」をなくすアプリです。</p>
+        <p class="hero-meta">iPhone 向け（iOS 17 以降）・無料（広告あり）・プレミアムあり</p>
+        <div class="chips"><span class="chip preorder">先着予約</span><span class="chip lottery">抽選</span><span class="chip mto">受注生産</span><span class="chip deadline">締切</span><span class="chip release">発売日</span></div>
+      </div>
+      <div data-l="en">
+        <h1>HobiCale</h1>
+        <p class="hero-lead">Follow the series you love and get preorder deadlines and release dates for figures, model kits, and merch on a calendar and in notifications. Never miss a first-come preorder, lottery, or made-to-order window again.</p>
+        <p class="hero-meta">For iPhone (iOS 17 or later) · Free with ads · Premium available</p>
+        <div class="chips"><span class="chip preorder">Preorder</span><span class="chip lottery">Lottery</span><span class="chip mto">Made-to-Order</span><span class="chip deadline">Deadline</span><span class="chip release">Release</span></div>
+      </div>
+      <div data-l="zh-Hans">
+        <h1>兴趣日历</h1>
+        <p class="hero-lead">关注喜欢的作品，手办、拼装模型和周边的预约截止与发售日就会通过日历和通知提醒你。先到先得预约、抽选、接单生产，不再错过。</p>
+        <p class="hero-meta">适用于 iPhone（iOS 17 或更高版本）· 免费（含广告）· 提供高级版</p>
+        <div class="chips"><span class="chip preorder">先到先得预约</span><span class="chip lottery">抽选</span><span class="chip mto">接单生产</span><span class="chip deadline">截止</span><span class="chip release">发售日</span></div>
+      </div>
+      <div data-l="zh-Hant">
+        <h1>興趣日曆</h1>
+        <p class="hero-lead">關注喜歡的作品，公仔、組裝模型和周邊的預購截止與發售日就會透過行事曆和通知提醒你。先到先得預約、抽選、接單生產，不再錯過。</p>
+        <p class="hero-meta">適用於 iPhone（iOS 17 或以上）· 免費（含廣告）· 提供進階版</p>
+        <div class="chips"><span class="chip preorder">先到先得預約</span><span class="chip lottery">抽選</span><span class="chip mto">接單生產</span><span class="chip deadline">截止</span><span class="chip release">發售日</span></div>
+      </div>
+      <div data-l="ko">
+        <h1>호비카레</h1>
+        <p class="hero-lead">좋아하는 작품을 팔로우하면 피규어·프라모델·굿즈의 예약 마감과 발매일을 캘린더와 알림으로 알려 드립니다. 선착순 예약·추첨·수주 생산을 더 이상 놓치지 마세요.</p>
+        <p class="hero-meta">iPhone용 (iOS 17 이상) · 무료(광고 포함) · 프리미엄 제공</p>
+        <div class="chips"><span class="chip preorder">선착순 예약</span><span class="chip lottery">추첨</span><span class="chip mto">수주 생산</span><span class="chip deadline">마감</span><span class="chip release">발매일</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- ===== TOC ===== -->
+    <nav class="toc">
+      <p class="toc-label">Contents</p>
+      <ul class="toc-list" data-l="ja">
+        <li><a href="#about"><span class="toc-num">01</span>ホビカレについて</a></li>
+        <li><a href="#features"><span class="toc-num">02</span>主な機能</a></li>
+        <li><a href="#premium"><span class="toc-num">03</span>プレミアム</a></li>
+        <li><a href="#faq"><span class="toc-num">04</span>よくある質問</a></li>
+        <li><a href="#contact"><span class="toc-num">05</span>お問い合わせ</a></li>
+        <li><a href="privacy/"><span class="toc-num">—</span>プライバシーポリシー</a></li>
+      </ul>
+      <ul class="toc-list" data-l="en">
+        <li><a href="#about"><span class="toc-num">01</span>About</a></li>
+        <li><a href="#features"><span class="toc-num">02</span>Features</a></li>
+        <li><a href="#premium"><span class="toc-num">03</span>Premium</a></li>
+        <li><a href="#faq"><span class="toc-num">04</span>FAQ</a></li>
+        <li><a href="#contact"><span class="toc-num">05</span>Contact</a></li>
+        <li><a href="privacy/"><span class="toc-num">—</span>Privacy Policy</a></li>
+      </ul>
+      <ul class="toc-list" data-l="zh-Hans">
+        <li><a href="#about"><span class="toc-num">01</span>关于兴趣日历</a></li>
+        <li><a href="#features"><span class="toc-num">02</span>主要功能</a></li>
+        <li><a href="#premium"><span class="toc-num">03</span>高级版</a></li>
+        <li><a href="#faq"><span class="toc-num">04</span>常见问题</a></li>
+        <li><a href="#contact"><span class="toc-num">05</span>联系我们</a></li>
+        <li><a href="privacy/"><span class="toc-num">—</span>隐私政策（日/英）</a></li>
+      </ul>
+      <ul class="toc-list" data-l="zh-Hant">
+        <li><a href="#about"><span class="toc-num">01</span>關於興趣日曆</a></li>
+        <li><a href="#features"><span class="toc-num">02</span>主要功能</a></li>
+        <li><a href="#premium"><span class="toc-num">03</span>進階版</a></li>
+        <li><a href="#faq"><span class="toc-num">04</span>常見問題</a></li>
+        <li><a href="#contact"><span class="toc-num">05</span>聯絡我們</a></li>
+        <li><a href="privacy/"><span class="toc-num">—</span>隱私權政策（日/英）</a></li>
+      </ul>
+      <ul class="toc-list" data-l="ko">
+        <li><a href="#about"><span class="toc-num">01</span>호비카레 소개</a></li>
+        <li><a href="#features"><span class="toc-num">02</span>주요 기능</a></li>
+        <li><a href="#premium"><span class="toc-num">03</span>프리미엄</a></li>
+        <li><a href="#faq"><span class="toc-num">04</span>자주 묻는 질문</a></li>
+        <li><a href="#contact"><span class="toc-num">05</span>문의</a></li>
+        <li><a href="privacy/"><span class="toc-num">—</span>개인정보 처리방침(일/영)</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+
+      <!-- ===== 01 ABOUT ===== -->
+      <section class="section" id="about" style="padding-top:0;">
+        <p class="section-num">01</p>
+        <div data-l="ja">
+          <h2>ホビカレについて</h2>
+          <p>アニメ・特撮・ゲームなど好きな作品をフォローすると、その作品のフィギュア・プラモデル・トレカ・ぬいぐるみ・雑貨について、先着予約・抽選・受注生産の受付開始と締切、当選発表、発売日・お届け予定をカレンダーに並べ、通知でお知らせします。</p>
+          <p>掲載するのは、メーカー公式サイトや大手ショップが公開している情報だけです。サーバーが1時間ごとに確認しています。噂・リーク・予想は載せません。</p>
+          <p class="note">ホビカレは商品の販売や予約の受付を行いません。予約・応募の前には必ず公式ページで最新情報をご確認ください。日時は日本時間で表示します。</p>
+        </div>
+        <div data-l="en">
+          <h2>About HobiCale</h2>
+          <p>Follow the anime, tokusatsu, and game series you love. HobiCale puts preorder, lottery, and made-to-order start and end dates, lottery result announcements, and release and estimated delivery dates for figures, model kits, trading cards, plush toys, and goods on a calendar, and notifies you.</p>
+          <p>HobiCale lists only information published on manufacturers' official websites and by major retailers, checked by our server every hour. No rumors, leaks, or speculation.</p>
+          <p class="note">HobiCale does not sell items or accept preorders. Always check the official page for the latest details before you preorder or enter a lottery. Dates and times are shown in Japan Standard Time (JST).</p>
+        </div>
+        <div data-l="zh-Hans">
+          <h2>关于兴趣日历</h2>
+          <p>关注你喜欢的动画、特摄、游戏等作品后，兴趣日历会把该作品的手办、拼装模型、集换式卡牌、毛绒玩具和周边杂货的先到先得预约、抽选、接单生产的开始与截止、抽选结果公布，以及发售日和预计送达时间整理到日历上，并通过通知提醒你。</p>
+          <p>我们只收录厂商官网和大型商店公开发布的信息，服务器每小时确认一次，不收录传闻、泄露或预测。</p>
+          <p class="note">兴趣日历不销售商品，也不受理预约。预约或参加抽选前，请务必在官方页面确认最新信息。日期和时间以日本时间（JST）显示。</p>
+        </div>
+        <div data-l="zh-Hant">
+          <h2>關於興趣日曆</h2>
+          <p>關注你喜歡的動畫、特攝、遊戲等作品後，興趣日曆會把該作品的公仔、組裝模型、集換式卡牌、絨毛玩偶和周邊雜貨的先到先得預約、抽選、接單生產的開始與截止、抽選結果公布，以及發售日和預計送達時間整理到行事曆上，並透過通知提醒你。</p>
+          <p>我們只收錄廠商官網和大型商店公開發布的資訊，伺服器每小時確認一次，不收錄傳聞、洩漏或預測。</p>
+          <p class="note">興趣日曆不販售商品，也不受理預購。預購或參加抽選前，請務必在官方頁面確認最新資訊。日期和時間以日本時間（JST）顯示。</p>
+        </div>
+        <div data-l="ko">
+          <h2>호비카레 소개</h2>
+          <p>애니메이션·특촬·게임 등 좋아하는 작품을 팔로우하면 그 작품의 피규어·프라모델·트레이딩 카드·봉제인형·잡화에 대해 선착순 예약·추첨·수주 생산의 접수 시작과 마감, 당첨 발표, 발매일·배송 예정을 캘린더에 정리하고 알림으로 알려 드립니다.</p>
+          <p>제조사 공식 사이트와 대형 쇼핑몰이 공개한 정보만 싣으며, 서버가 1시간마다 확인합니다. 소문·유출·예상 정보는 싣지 않습니다.</p>
+          <p class="note">호비카레는 상품 판매나 예약 접수를 하지 않습니다. 예약·응모 전에 반드시 공식 페이지에서 최신 정보를 확인해 주세요. 날짜와 시간은 일본 시간(JST)으로 표시됩니다.</p>
+        </div>
+      </section>
+
+      <!-- ===== 02 FEATURES ===== -->
+      <section class="section" id="features">
+        <p class="section-num">02</p>
+        <div data-l="ja">
+          <h2>主な機能</h2>
+          <div class="feature-grid">
+            <div class="feature"><p class="feature-title">作品をフォロー</p><p>好きな作品を選ぶだけ。新商品が出たら通知でお知らせします。</p></div>
+            <div class="feature"><p class="feature-title">グッズをフォロー</p><p>気になる商品をフォローすると、締切の前日と3時間前に通知します。</p></div>
+            <div class="feature"><p class="feature-title">画像付きの通知</p><p>通知から公式ページを開いたり、カレンダーに追加したりできます。受け取った通知は「通知」タブで見返せます。</p></div>
+            <div class="feature"><p class="feature-title">月カレンダー</p><p>受付期間はバー、締切や発売日はチップで表示。種類ごとに色分けします。</p></div>
+            <div class="feature"><p class="feature-title">リスト・絞り込み</p><p>グリッド・一覧・タイムライン。期間・販売方式・カテゴリ・作品で絞り込み、日付順や注目順に並べ替え。</p></div>
+            <div class="feature"><p class="feature-title">注目度</p><p>公式動画の再生数などをもとに、話題の商品を星で表示します。</p></div>
+            <div class="feature"><p class="feature-title">ウィジェット</p><p>ホーム画面・ロック画面に次の締切を表示します。</p></div>
+            <div class="feature"><p class="feature-title">カレンダー追加・カウントダウン</p><p>予定を iPhone のカレンダーに登録。締切までの残り時間をロック画面に表示できます。</p></div>
+            <div class="feature"><p class="feature-title">4言語対応</p><p>日本語・英語・中国語（簡体字・繁体字）・韓国語。商品名・作品名も翻訳して表示します。</p></div>
+          </div>
+        </div>
+        <div data-l="en">
+          <h2>Features</h2>
+          <div class="feature-grid">
+            <div class="feature"><p class="feature-title">Follow series</p><p>Pick your favorite series and get notified when new items are announced.</p></div>
+            <div class="feature"><p class="feature-title">Follow items</p><p>Follow an item to get reminders the day before and 3 hours before its deadline.</p></div>
+            <div class="feature"><p class="feature-title">Notifications with images</p><p>Open the official page or add the event to your calendar right from the notification. Past notifications stay in the Alerts tab.</p></div>
+            <div class="feature"><p class="feature-title">Monthly calendar</p><p>Sale windows appear as bars, deadlines and release dates as chips, color-coded by type.</p></div>
+            <div class="feature"><p class="feature-title">Lists and filters</p><p>Grid, list, or timeline. Filter by period, sale type, category, and series; sort by date or buzz.</p></div>
+            <div class="feature"><p class="feature-title">Buzz</p><p>Trending items are marked with stars, based on signals such as official video views.</p></div>
+            <div class="feature"><p class="feature-title">Widgets</p><p>See your next deadlines on the Home Screen and Lock Screen.</p></div>
+            <div class="feature"><p class="feature-title">Calendar and countdown</p><p>Save events to your iPhone calendar and show a deadline countdown on your Lock Screen.</p></div>
+            <div class="feature"><p class="feature-title">4 languages</p><p>Japanese, English, Chinese (Simplified and Traditional), and Korean. Item and series names are translated too.</p></div>
+          </div>
+        </div>
+        <div data-l="zh-Hans">
+          <h2>主要功能</h2>
+          <div class="feature-grid">
+            <div class="feature"><p class="feature-title">关注作品</p><p>选择喜欢的作品，有新商品时通知你。</p></div>
+            <div class="feature"><p class="feature-title">关注商品</p><p>关注感兴趣的商品，在截止前一天和截止前3小时提醒你。</p></div>
+            <div class="feature"><p class="feature-title">带图片的通知</p><p>可直接从通知打开官方页面或添加到日历。收到的通知可在「通知」标签页中查看。</p></div>
+            <div class="feature"><p class="feature-title">月历</p><p>受理期间以横条显示，截止和发售日以标签显示，并按类型区分颜色。</p></div>
+            <div class="feature"><p class="feature-title">列表与筛选</p><p>网格、列表、时间线。按期间、销售方式、类别和作品筛选，按日期或关注度排序。</p></div>
+            <div class="feature"><p class="feature-title">关注度</p><p>根据官方视频播放量等，用星星标出热门商品。</p></div>
+            <div class="feature"><p class="feature-title">小组件</p><p>在主屏幕和锁定屏幕显示下一个截止。</p></div>
+            <div class="feature"><p class="feature-title">添加到日历・倒计时</p><p>将日程添加到 iPhone 日历，并可在锁定屏幕上显示截止倒计时。</p></div>
+            <div class="feature"><p class="feature-title">支持4种语言</p><p>日语、英语、中文（简体、繁体）、韩语。商品名和作品名也会翻译显示。</p></div>
+          </div>
+        </div>
+        <div data-l="zh-Hant">
+          <h2>主要功能</h2>
+          <div class="feature-grid">
+            <div class="feature"><p class="feature-title">關注作品</p><p>選擇喜歡的作品，有新商品時通知你。</p></div>
+            <div class="feature"><p class="feature-title">關注商品</p><p>關注感興趣的商品，在截止前一天和截止前3小時提醒你。</p></div>
+            <div class="feature"><p class="feature-title">附圖片的通知</p><p>可直接從通知開啟官方頁面或加入行事曆。收到的通知可在「通知」分頁中查看。</p></div>
+            <div class="feature"><p class="feature-title">月曆</p><p>受理期間以橫條顯示，截止和發售日以標籤顯示，並依類型區分顏色。</p></div>
+            <div class="feature"><p class="feature-title">列表與篩選</p><p>網格、列表、時間軸。依期間、銷售方式、類別和作品篩選，依日期或關注度排序。</p></div>
+            <div class="feature"><p class="feature-title">關注度</p><p>根據官方影片播放次數等，以星星標示熱門商品。</p></div>
+            <div class="feature"><p class="feature-title">小工具</p><p>在主畫面和鎖定畫面顯示下一個截止。</p></div>
+            <div class="feature"><p class="feature-title">加入行事曆・倒數</p><p>將行程加入 iPhone 行事曆，並可在鎖定畫面顯示截止倒數。</p></div>
+            <div class="feature"><p class="feature-title">支援4種語言</p><p>日語、英語、中文（簡體、繁體）、韓語。商品名稱和作品名稱也會翻譯顯示。</p></div>
+          </div>
+        </div>
+        <div data-l="ko">
+          <h2>주요 기능</h2>
+          <div class="feature-grid">
+            <div class="feature"><p class="feature-title">작품 팔로우</p><p>좋아하는 작품을 고르기만 하면 신상품이 나왔을 때 알림으로 알려 드립니다.</p></div>
+            <div class="feature"><p class="feature-title">굿즈 팔로우</p><p>관심 있는 상품을 팔로우하면 마감 전날과 3시간 전에 알림을 보냅니다.</p></div>
+            <div class="feature"><p class="feature-title">이미지가 포함된 알림</p><p>알림에서 바로 공식 페이지를 열거나 캘린더에 추가할 수 있습니다. 받은 알림은 '알림' 탭에서 다시 볼 수 있습니다.</p></div>
+            <div class="feature"><p class="feature-title">월간 캘린더</p><p>접수 기간은 막대로, 마감·발매일은 칩으로 표시하고 종류별로 색을 구분합니다.</p></div>
+            <div class="feature"><p class="feature-title">리스트·필터</p><p>그리드·목록·타임라인. 기간·판매 방식·카테고리·작품으로 필터링하고 날짜순·주목도순으로 정렬.</p></div>
+            <div class="feature"><p class="feature-title">주목도</p><p>공식 영상 조회수 등을 바탕으로 화제의 상품을 별로 표시합니다.</p></div>
+            <div class="feature"><p class="feature-title">위젯</p><p>홈 화면·잠금 화면에 다음 마감을 표시합니다.</p></div>
+            <div class="feature"><p class="feature-title">캘린더 추가·카운트다운</p><p>일정을 iPhone 캘린더에 등록하고, 마감까지 남은 시간을 잠금 화면에 표시할 수 있습니다.</p></div>
+            <div class="feature"><p class="feature-title">4개 언어 지원</p><p>일본어·영어·중국어(간체·번체)·한국어. 상품명·작품명도 번역해서 표시합니다.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 03 PREMIUM ===== -->
+      <section class="section" id="premium">
+        <p class="section-num">03</p>
+        <div data-l="ja">
+          <h2>プレミアム</h2>
+          <p>基本機能は無料で使えます（広告あり）。プレミアムに登録すると次の特典が使えます。</p>
+          <ul class="item-list">
+            <li><strong>広告なし</strong> — アプリ内の広告をすべて非表示にします。</li>
+            <li><strong>リマインド強化</strong> — 前日・3時間前に加えて、7日前・3日前にもお知らせします。</li>
+            <li><strong>画面の明るさ切り替え</strong> — ライト・ダークを端末の設定とは別に選べます。</li>
+            <li><strong>開発を応援</strong> — 情報源の追加や新機能の開発に使います。</li>
+          </ul>
+          <p style="margin-top:16px;">月額プランと年額プランがあります（自動更新）。初めての方は1週間無料でお試しいただけます。価格は App Store の表示をご確認ください。</p>
+        </div>
+        <div data-l="en">
+          <h2>Premium</h2>
+          <p>The core features are free (with ads). Premium adds the following:</p>
+          <ul class="item-list">
+            <li><strong>No ads</strong> — Removes all ads in the app.</li>
+            <li><strong>Extra reminders</strong> — 7 days and 3 days before, in addition to the day before and 3 hours before.</li>
+            <li><strong>Appearance</strong> — Choose light or dark independently of your device setting.</li>
+            <li><strong>Support development</strong> — Helps us add sources and build new features.</li>
+          </ul>
+          <p style="margin-top:16px;">Monthly and yearly auto-renewable plans are available. New subscribers can try Premium free for one week. See the App Store for prices in your region.</p>
+        </div>
+        <div data-l="zh-Hans">
+          <h2>高级版</h2>
+          <p>基本功能可免费使用（含广告）。订阅高级版后可享受以下权益：</p>
+          <ul class="item-list">
+            <li><strong>无广告</strong> — 隐藏应用内的所有广告。</li>
+            <li><strong>强化提醒</strong> — 除前一天和3小时前外，还会在7天前和3天前提醒。</li>
+            <li><strong>外观切换</strong> — 可独立于设备设置选择浅色或深色。</li>
+            <li><strong>支持开发</strong> — 用于增加信息来源和开发新功能。</li>
+          </ul>
+          <p style="margin-top:16px;">提供包月和包年方案（自动续订）。首次订阅可免费试用1周。价格请以 App Store 显示为准。</p>
+        </div>
+        <div data-l="zh-Hant">
+          <h2>進階版</h2>
+          <p>基本功能可免費使用（含廣告）。訂閱進階版後可享有以下權益：</p>
+          <ul class="item-list">
+            <li><strong>無廣告</strong> — 隱藏 App 內的所有廣告。</li>
+            <li><strong>強化提醒</strong> — 除了前一天和3小時前，還會在7天前和3天前提醒。</li>
+            <li><strong>外觀切換</strong> — 可獨立於裝置設定選擇淺色或深色。</li>
+            <li><strong>支持開發</strong> — 用於增加資訊來源和開發新功能。</li>
+          </ul>
+          <p style="margin-top:16px;">提供月繳和年繳方案（自動續訂）。首次訂閱可免費試用1週。價格請以 App Store 顯示為準。</p>
+        </div>
+        <div data-l="ko">
+          <h2>프리미엄</h2>
+          <p>기본 기능은 무료로 이용할 수 있습니다(광고 포함). 프리미엄을 구독하면 다음 혜택을 이용할 수 있습니다.</p>
+          <ul class="item-list">
+            <li><strong>광고 없음</strong> — 앱 내 광고를 모두 숨깁니다.</li>
+            <li><strong>리마인드 강화</strong> — 전날·3시간 전에 더해 7일 전·3일 전에도 알려 드립니다.</li>
+            <li><strong>화면 모드 전환</strong> — 기기 설정과 별도로 라이트·다크를 선택할 수 있습니다.</li>
+            <li><strong>개발 응원</strong> — 정보 출처 추가와 새 기능 개발에 사용됩니다.</li>
+          </ul>
+          <p style="margin-top:16px;">월간·연간 플랜(자동 갱신)이 있습니다. 처음 이용하시는 분은 1주일 무료로 체험할 수 있습니다. 가격은 App Store에서 확인해 주세요.</p>
+        </div>
+      </section>
+
+      <!-- ===== 04 FAQ ===== -->
+      <section class="section faq" id="faq">
+        <p class="section-num">04</p>
+        <div data-l="ja">
+          <h2>よくある質問</h2>
+          <details><summary>無料で使えますか？</summary><div><p>はい。作品・グッズのフォロー、カレンダー、通知などの基本機能は無料です（広告が表示されます）。プレミアムは任意です。</p></div></details>
+          <details><summary>情報はどこから集めていますか？</summary><div><p>メーカー公式サイトや大手ショップが公開している情報を、サーバーが1時間ごとに確認しています。噂・リーク・予想は載せません。</p></div></details>
+          <details><summary>掲載内容が公式と違います</summary><div><p>公式の更新がアプリに反映されるまで時間がかかることがあります。最終的な情報は必ず公式ページでご確認ください。誤りに気づいたら、下のメールアドレスまでお知らせいただけると助かります。</p></div></details>
+          <details><summary>アプリで予約・購入はできますか？</summary><div><p>できません。ホビカレは販売や予約の受付を行いません。詳細画面のボタンから公式ページを開いて手続きしてください。</p></div></details>
+          <details><summary>通知はいつ届きますか？</summary><div><p>作品をフォローすると、その作品の新商品が出たときに通知します。グッズをフォローすると、締切の前日と3時間前（時刻が分かる締切のみ）に通知します。プレミアムでは7日前・3日前にも通知します。</p></div></details>
+          <details><summary>通知が届きません</summary><div><p>iOS の「設定」>「通知」>「ホビカレ」で通知が許可されているか、アプリの「設定」で通知がオンになっているか、作品またはグッズをフォローしているかをご確認ください。</p></div></details>
+          <details><summary>再入荷の通知はありますか？</summary><div><p>ありません。ホビカレは予約・抽選・受注生産の締切と発売日のお知らせに絞っています。</p></div></details>
+          <details><summary>日時はどの時間帯ですか？</summary><div><p>すべて日本時間（JST）で表示します。</p></div></details>
+          <details><summary>プレミアムを解約するには？</summary><div><p>iOS の「設定」>「Apple ID」>「サブスクリプション」から解約できます。アプリを削除しても解約にはなりません。期間終了の24時間前までに解約しない限り自動で更新されます。</p></div></details>
+          <details><summary>機種変更・再インストール後にプレミアムを戻すには？</summary><div><p>同じ Apple ID でサインインし、アプリの「設定」>「プレミアムにアップグレード」>「購入を復元」を押してください。</p></div></details>
+          <details><summary>広告の同意設定を変えたい</summary><div><p>同意が必要な地域では、アプリの「設定」>「プライバシー」>「広告の同意設定を変更」から変更できます。</p></div></details>
+          <details><summary>作品やショップを追加してほしい</summary><div><p>下のメールアドレスまでご要望をお送りください。公式に公開された情報を自動で取得できるサイトから順に対応しています。</p></div></details>
+        </div>
+        <div data-l="en">
+          <h2>FAQ</h2>
+          <details><summary>Is HobiCale free?</summary><div><p>Yes. Following series and items, the calendar, and notifications are free (with ads). Premium is optional.</p></div></details>
+          <details><summary>Where does the information come from?</summary><div><p>Our server checks information published on manufacturers' official websites and by major retailers every hour. We do not list rumors, leaks, or speculation.</p></div></details>
+          <details><summary>The details differ from the official page</summary><div><p>Official updates can take some time to appear in the app. Always check the official page for the final details. If you spot a mistake, please let us know at the email address below.</p></div></details>
+          <details><summary>Can I preorder or buy items in the app?</summary><div><p>No. HobiCale does not sell items or accept preorders. Use the button on the detail screen to open the official page.</p></div></details>
+          <details><summary>When will I get notifications?</summary><div><p>Following a series notifies you when new items for that series appear. Following an item sends reminders the day before and 3 hours before its deadline (for deadlines with a set time). Premium adds reminders 7 days and 3 days before.</p></div></details>
+          <details><summary>I'm not getting notifications</summary><div><p>Check that notifications are allowed in iOS Settings &gt; Notifications &gt; HobiCale, that notifications are turned on in the app's Settings, and that you follow at least one series or item.</p></div></details>
+          <details><summary>Do you send restock alerts?</summary><div><p>No. HobiCale focuses on preorder, lottery, and made-to-order deadlines and release dates.</p></div></details>
+          <details><summary>Which time zone is used?</summary><div><p>All dates and times are shown in Japan Standard Time (JST).</p></div></details>
+          <details><summary>How do I cancel Premium?</summary><div><p>Go to iOS Settings &gt; Apple ID &gt; Subscriptions. Deleting the app does not cancel your subscription. It renews automatically unless canceled at least 24 hours before the end of the current period.</p></div></details>
+          <details><summary>How do I restore Premium on a new device?</summary><div><p>Sign in with the same Apple ID, then open Settings &gt; Upgrade to Premium &gt; Restore purchases in the app.</p></div></details>
+          <details><summary>How do I change my ad consent?</summary><div><p>Where consent is required, open Settings &gt; Privacy &gt; Change ad consent in the app.</p></div></details>
+          <details><summary>Can you add a series or shop?</summary><div><p>Send us a request at the email address below. We add sites whose official information can be collected automatically.</p></div></details>
+        </div>
+        <div data-l="zh-Hans">
+          <h2>常见问题</h2>
+          <details><summary>可以免费使用吗？</summary><div><p>可以。关注作品和商品、日历、通知等基本功能免费（会显示广告）。高级版为可选项。</p></div></details>
+          <details><summary>信息从哪里来？</summary><div><p>服务器每小时确认厂商官网和大型商店公开发布的信息。不收录传闻、泄露或预测。</p></div></details>
+          <details><summary>内容与官方不一致</summary><div><p>官方更新反映到应用可能需要一些时间。最终信息请务必在官方页面确认。如发现错误，欢迎发送邮件告诉我们。</p></div></details>
+          <details><summary>可以在应用内预约或购买吗？</summary><div><p>不可以。兴趣日历不销售商品，也不受理预约。请通过详情页的按钮打开官方页面办理。</p></div></details>
+          <details><summary>什么时候会收到通知？</summary><div><p>关注作品后，该作品有新商品时会通知你。关注商品后，会在截止前一天和截止前3小时（仅限有具体时间的截止）提醒你。高级版还会在7天前和3天前提醒。</p></div></details>
+          <details><summary>收不到通知</summary><div><p>请确认 iOS「设置」>「通知」>「兴趣日历」已允许通知、应用内「设置」已开启通知，并且已关注作品或商品。</p></div></details>
+          <details><summary>有补货通知吗？</summary><div><p>没有。兴趣日历专注于预约、抽选、接单生产的截止和发售日提醒。</p></div></details>
+          <details><summary>日期和时间是哪个时区？</summary><div><p>全部以日本时间（JST）显示。</p></div></details>
+          <details><summary>如何取消高级版？</summary><div><p>请在 iOS「设置」>「Apple ID」>「订阅」中取消。删除应用不会取消订阅。除非在当前周期结束前至少24小时取消，否则将自动续订。</p></div></details>
+          <details><summary>换机或重装后如何恢复高级版？</summary><div><p>使用同一 Apple ID 登录后，在应用内打开「设置」>「升级到高级版」>「恢复购买」。</p></div></details>
+          <details><summary>如何更改广告同意设置？</summary><div><p>在需要同意的地区，可在应用内「设置」>「隐私」中更改。</p></div></details>
+          <details><summary>希望增加作品或商店</summary><div><p>欢迎发送邮件告诉我们。我们会优先支持能自动获取官方公开信息的网站。</p></div></details>
+        </div>
+        <div data-l="zh-Hant">
+          <h2>常見問題</h2>
+          <details><summary>可以免費使用嗎？</summary><div><p>可以。關注作品和商品、行事曆、通知等基本功能免費（會顯示廣告）。進階版為選用。</p></div></details>
+          <details><summary>資訊從哪裡來？</summary><div><p>伺服器每小時確認廠商官網和大型商店公開發布的資訊。不收錄傳聞、洩漏或預測。</p></div></details>
+          <details><summary>內容與官方不一致</summary><div><p>官方更新反映到 App 可能需要一些時間。最終資訊請務必在官方頁面確認。如發現錯誤，歡迎來信告訴我們。</p></div></details>
+          <details><summary>可以在 App 內預購或購買嗎？</summary><div><p>不行。興趣日曆不販售商品，也不受理預購。請透過詳細頁面的按鈕開啟官方頁面辦理。</p></div></details>
+          <details><summary>什麼時候會收到通知？</summary><div><p>關注作品後，該作品有新商品時會通知你。關注商品後，會在截止前一天和截止前3小時（僅限有具體時間的截止）提醒你。進階版還會在7天前和3天前提醒。</p></div></details>
+          <details><summary>收不到通知</summary><div><p>請確認 iOS「設定」>「通知」>「興趣日曆」已允許通知、App 內「設定」已開啟通知，並且已關注作品或商品。</p></div></details>
+          <details><summary>有補貨通知嗎？</summary><div><p>沒有。興趣日曆專注於預購、抽選、接單生產的截止和發售日提醒。</p></div></details>
+          <details><summary>日期和時間是哪個時區？</summary><div><p>全部以日本時間（JST）顯示。</p></div></details>
+          <details><summary>如何取消進階版？</summary><div><p>請在 iOS「設定」>「Apple ID」>「訂閱項目」中取消。刪除 App 不會取消訂閱。除非在目前週期結束前至少24小時取消，否則將自動續訂。</p></div></details>
+          <details><summary>換機或重新安裝後如何恢復進階版？</summary><div><p>使用同一 Apple ID 登入後，在 App 內開啟「設定」>「升級到進階版」>「回復購買」。</p></div></details>
+          <details><summary>如何變更廣告同意設定？</summary><div><p>在需要同意的地區，可在 App 內「設定」>「隱私」中變更。</p></div></details>
+          <details><summary>希望增加作品或商店</summary><div><p>歡迎來信告訴我們。我們會優先支援能自動取得官方公開資訊的網站。</p></div></details>
+        </div>
+        <div data-l="ko">
+          <h2>자주 묻는 질문</h2>
+          <details><summary>무료로 사용할 수 있나요?</summary><div><p>네. 작품·굿즈 팔로우, 캘린더, 알림 등 기본 기능은 무료입니다(광고가 표시됩니다). 프리미엄은 선택 사항입니다.</p></div></details>
+          <details><summary>정보는 어디에서 가져오나요?</summary><div><p>서버가 1시간마다 제조사 공식 사이트와 대형 쇼핑몰이 공개한 정보를 확인합니다. 소문·유출·예상 정보는 싣지 않습니다.</p></div></details>
+          <details><summary>게재 내용이 공식 정보와 달라요</summary><div><p>공식 업데이트가 앱에 반영되기까지 시간이 걸릴 수 있습니다. 최종 정보는 반드시 공식 페이지에서 확인해 주세요. 오류를 발견하시면 아래 이메일로 알려 주세요.</p></div></details>
+          <details><summary>앱에서 예약·구매할 수 있나요?</summary><div><p>아니요. 호비카레는 상품 판매나 예약 접수를 하지 않습니다. 상세 화면의 버튼으로 공식 페이지를 열어 진행해 주세요.</p></div></details>
+          <details><summary>알림은 언제 오나요?</summary><div><p>작품을 팔로우하면 그 작품의 신상품이 나왔을 때 알려 드립니다. 굿즈를 팔로우하면 마감 전날과 3시간 전(시간이 정해진 마감만)에 알려 드립니다. 프리미엄은 7일 전·3일 전에도 알려 드립니다.</p></div></details>
+          <details><summary>알림이 오지 않아요</summary><div><p>iOS '설정' &gt; '알림' &gt; '호비카레'에서 알림이 허용되어 있는지, 앱의 '설정'에서 알림이 켜져 있는지, 작품이나 굿즈를 팔로우했는지 확인해 주세요.</p></div></details>
+          <details><summary>재입고 알림이 있나요?</summary><div><p>없습니다. 호비카레는 예약·추첨·수주 생산의 마감과 발매일 안내에 집중합니다.</p></div></details>
+          <details><summary>날짜와 시간은 어느 시간대인가요?</summary><div><p>모두 일본 시간(JST)으로 표시됩니다.</p></div></details>
+          <details><summary>프리미엄은 어떻게 해지하나요?</summary><div><p>iOS '설정' &gt; 'Apple ID' &gt; '구독'에서 해지할 수 있습니다. 앱을 삭제해도 해지되지 않습니다. 현재 기간이 끝나기 최소 24시간 전에 해지하지 않으면 자동으로 갱신됩니다.</p></div></details>
+          <details><summary>기기 변경·재설치 후 프리미엄을 복원하려면?</summary><div><p>같은 Apple ID로 로그인한 뒤 앱의 '설정' &gt; '프리미엄으로 업그레이드' &gt; '구매 복원'을 눌러 주세요.</p></div></details>
+          <details><summary>광고 동의 설정을 바꾸고 싶어요</summary><div><p>동의가 필요한 지역에서는 앱의 '설정' &gt; '개인정보'에서 변경할 수 있습니다.</p></div></details>
+          <details><summary>작품이나 쇼핑몰을 추가해 주세요</summary><div><p>아래 이메일로 요청해 주세요. 공식 공개 정보를 자동으로 가져올 수 있는 사이트부터 순서대로 추가하고 있습니다.</p></div></details>
+        </div>
+      </section>
+
+      <!-- ===== 05 CONTACT ===== -->
+      <section class="section" id="contact">
+        <p class="section-num">05</p>
+        <div data-l="ja">
+          <h2>お問い合わせ</h2>
+          <p>不具合の報告・ご要望・掲載内容の誤りなどは、メールでお送りください。不具合の場合は、iPhone の機種・iOS のバージョン・アプリのバージョン（アプリの「設定」に表示）と、起きたことを添えていただけると助かります。</p>
+        </div>
+        <div data-l="en">
+          <h2>Contact</h2>
+          <p>For bug reports, requests, or incorrect information, please email us. For bugs, it helps to include your iPhone model, iOS version, app version (shown in the app's Settings), and what happened.</p>
+        </div>
+        <div data-l="zh-Hans">
+          <h2>联系我们</h2>
+          <p>如需反馈问题、提出建议或报告信息错误，请发送邮件。反馈问题时，请尽量附上 iPhone 型号、iOS 版本、应用版本（显示在应用的「设置」中）以及发生的情况。</p>
+        </div>
+        <div data-l="zh-Hant">
+          <h2>聯絡我們</h2>
+          <p>如需回報問題、提出建議或回報資訊錯誤，請來信。回報問題時，請盡量附上 iPhone 型號、iOS 版本、App 版本（顯示在 App 的「設定」中）以及發生的情況。</p>
+        </div>
+        <div data-l="ko">
+          <h2>문의</h2>
+          <p>오류 신고·요청·게재 정보의 오류 등은 이메일로 보내 주세요. 오류 신고 시 iPhone 기종, iOS 버전, 앱 버전(앱의 '설정'에 표시)과 발생한 상황을 함께 알려 주시면 도움이 됩니다.</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-row">
+            <span class="contact-key">Developer</span>
+            <span class="contact-val"><a href="https://noctan17.github.io/">noctan17</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Email</span>
+            <span class="contact-val"><a href="mailto:lionelisshi1017@gmail.com">lionelisshi1017@gmail.com</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Privacy</span>
+            <span class="contact-val"><a href="privacy/">https://noctan17.github.io/hobicale/privacy/</a></span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <span class="f-logo">HobiCale</span>
+    <div class="f-links">
+      <a href="privacy/">Privacy Policy</a>
+      <a href="https://noctan17.github.io/">noctan17.github.io ↗</a>
+      <span class="f-date">© 2026 noctan17</span>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+</body>
+</html>
